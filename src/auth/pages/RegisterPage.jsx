@@ -1,9 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import { CrearFormUser } from '../../components/CrearFormUser';
 
 export const RegisterPage = () => {
   return (
-    <div>RegisterPage
-          <Outlet />
-    </div>
+    <section>
+      <CrearFormUser mode="crear"/>
+      <Outlet />
+    </section>
+
   )
 }

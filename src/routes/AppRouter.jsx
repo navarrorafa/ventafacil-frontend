@@ -3,13 +3,17 @@ import { HomePage, CardAnuncioPage, CategoriaPage, GalleryPage } from '../pages'
 import { AuthRouter } from '../auth/routes/AuthRouter';
 import { UserRouter } from '../user/routes/UserRouter';
 import { AdminRouter } from '../admin/routes/AdminRouter';
+import { UserContext } from '../context/UserContext';
+import { useContext } from 'react';
 
 
 
 
 export const AppRouter = () => {
 
-   const typeUser = "guest"
+   const { typeUser } = useContext(UserContext);
+
+   
 
    return (
 
