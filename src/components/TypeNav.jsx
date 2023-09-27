@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { BottonLogout, NavAdmin, NavGuest, NavUser, } from "./index"
 import { NavLink } from 'react-router-dom'
+import { UserContext } from "../context/UserContext";
 
 export const TypeNav = () => {
 
-  const typeUser = "guest";
+  const { typeUser } = useContext(UserContext);
 
   return (
     <>

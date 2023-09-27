@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
+import { CrearFormUser } from '../../components/CrearFormUser';
 
 export const EditarPerfilPage = () => {
   return (
     <div>
-      <p>EditarPerfilPage</p>
+      <CrearFormUser mode="update"/>
       <Outlet/>
       </div>
 
