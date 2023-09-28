@@ -1,28 +1,10 @@
-import { useForm } from "../../hooks/useForm";
 
 
+export const ListaLocalizaciones = () => {
 
-
-export const PublicarForm = ({mode}) => {
- 
-const { data, submited, handleSubmit, handleChange}=useForm()
-  
   return (
-    <form encType="multipart/form" onSubmit={handleSubmit} method="post"> 
-      <input type="text" value={data.Producto} placeholder="Producto" name='producto' onClick={handleChange}/>
-     <textarea name="descripcion" value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
-      <input type="text" value={data.Precio} placeholder="Precio"  name='precio' onClick={handleChange}/>
-      <select name='categoria' value={data.Categoria} onClick={handleChange} >
-        <option value="electronica">electronica</option>
-        <option value=" ropaAccesorios">Ropa y accesorios</option>
-        <option value=" hogarJardin"> Hoga y jardín</option>
-        <option value=" deportesAireLibre"> Deportes y aire libre</option>
-        <option value=" saludBelleza"> Salud y belleza</option>
-        <option value=" juguetesJuegos"> Juguetes y juegos</option>
-        <option value=" alimentosBebidas"> Alimentación</option>
-        <option value=" librosMusica"> Libros y música</option>
-      </select>
-      <select name="zonageografica" value={data.Categoria} onClick={handleChange}>
+    <>
+     <select name="zonageografica" value={data.Categoria} onClick={handleChange}>
       <option value="">-------</option>
                     <option value="alava">Alava</option>
                     <option value="albacete">Albacete</option>
@@ -76,11 +58,6 @@ const { data, submited, handleSubmit, handleChange}=useForm()
                     <option value="zamora">Zamora</option>
                     <option value="zaragoza">Zaragoza</option>
       </select>
-      <input type="file" placeholder="Fotografía"  name='imagenAnuncio'/>
-      <input hidden type="text"  name="idVendedor"/>
-      <input hidden type="text"  name="nombreVendedor" />
-      <input hidden type="text" name="rutaFoto" />
-      <input type="submit" />
-    </form>
-  );
+  </>
+  )
 }

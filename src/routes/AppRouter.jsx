@@ -9,7 +9,7 @@ import { AdminRouter } from '../admin/routes/AdminRouter';
 
 export const AppRouter = () => {
 
-   const typeUser = "guest"
+   const typeUser = "user"
 
    return (
 

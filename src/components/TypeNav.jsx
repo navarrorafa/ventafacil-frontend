@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export const TypeNav = () => {
 
-  const typeUser = "guest";
+  const typeUser = "user";
 
   return (
     <>
