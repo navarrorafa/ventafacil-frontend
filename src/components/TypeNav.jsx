@@ -5,7 +5,8 @@ import { UserContext } from "../context/UserContext";
 
 export const TypeNav = () => {
 
-  const { typeUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
+   const {typeUser} = user
 
   return (
     <>

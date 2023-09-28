@@ -3,13 +3,15 @@ import { UserContext } from './UserContext';
 
 
 export const UserProvider = ({ children }) => {
-    const [typeUser, setTypeUser] = useState('guest');  
-    const changeTypeUser = (newType) => {
-        setTypeUser(newType);
-    };
+    const [user, setUser] = useState({
+        uid_firebase: "4564654",
+        email: "rafa@gmail.com",
+        typeUser: "guest"
+    });
+
 
     return (
-        <UserContext.Provider value={{ typeUser, changeTypeUser }}>
+        <UserContext.Provider value={{ user, setUser }}>
             {children}
         </UserContext.Provider>
     );

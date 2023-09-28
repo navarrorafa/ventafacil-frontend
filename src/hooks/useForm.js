@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useForm = (initialValue = null) => {
+export const useForm = (initialValue = {}) => {
 
     const [data, setData] = useState(initialValue);
     const [submited, setSubmited] = useState(false);
@@ -18,7 +18,7 @@ export const useForm = (initialValue = null) => {
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
-        const form = ev.target;
+      
         const objData = serialForm(ev.target);
 
         setData(objData);
@@ -27,8 +27,8 @@ export const useForm = (initialValue = null) => {
 
     const handleChange = ({ target }) => {
         const { name, value } = target;
-        if (!data) return
-
+        // if (!data) return
+     
         setData({
             ...data,
             [name]: value
