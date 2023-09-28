@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { HomePage, CardAnuncioPage, CategoriaPage, GalleryPage } from '../pages';
 import { AuthRouter } from '../auth/routes/AuthRouter';
 import { UserRouter } from '../user/routes/UserRouter';
@@ -7,29 +7,23 @@ import { UserContext } from '../context/UserContext';
 import { useContext } from 'react';
 
 
-
-
 export const AppRouter = () => {
 
    const { typeUser } = useContext(UserContext);
 
-   
-
    return (
-
-
 
       <Routes>
 
          <Route path="/" element={<HomePage />}>
-            <Route path="galeria" element={<GalleryPage />}>
-               <Route path="producto/:id" element={<CardAnuncioPage />} />
+            <Route path="/galeria" element={<GalleryPage />}>
+               <Route path="/producto/:id" element={<CardAnuncioPage />} />
             </Route>
          </Route>
 
          <Route path="/categoria" element={<CategoriaPage />}>
-            <Route path="galeria" element={<GalleryPage />}>
-               <Route path="producto/:id" element={<CardAnuncioPage />} />
+            <Route path="/galeria" element={<GalleryPage />}>
+               <Route path="/producto/:id" element={<CardAnuncioPage />} />
             </Route>
          </Route>
 
@@ -44,13 +38,6 @@ export const AppRouter = () => {
          }
 
       </Routes>
-
-
-
-
-
-
-
 
    )
 }

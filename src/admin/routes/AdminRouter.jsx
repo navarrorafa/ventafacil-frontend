@@ -1,6 +1,6 @@
 
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { PerfilAnuncioPage, PerfilUserPage, TablaAnunciosPage, TablaUserPage } from '../pages';
+import { BorrarAnuncioAdminPage, PerfilAnuncioPage, PerfilUserPage, TablaAnunciosPage, TablaUserPage } from '../pages';
 
 
 export const AdminRouter = () => {
@@ -8,10 +8,11 @@ export const AdminRouter = () => {
         <>
             <Routes>
                 <Route path="anuncios" element={<TablaAnunciosPage />}>
-                    <Route path=":id" element={<PerfilAnuncioPage />} />
+                    <Route path="producto/:id" element={<PerfilAnuncioPage />} />
+                    <Route path="/borrarproducto/:id" element={<BorrarAnuncioAdminPage />} />
                 </Route>
                 <Route path="user" element={<TablaUserPage />}>
-                    <Route path=":id" element={<PerfilUserPage />} />
+                    <Route path="/:id" element={<PerfilUserPage />} />
                 </Route>
             </Routes>
 
