@@ -7,6 +7,7 @@ export const TypeNav = () => {
 
   const { user } = useContext(UserContext);
    const {typeUser} = user
+   
 
   return (
     <>
