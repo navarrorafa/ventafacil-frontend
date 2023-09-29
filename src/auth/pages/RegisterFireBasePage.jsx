@@ -1,9 +1,11 @@
 import { Outlet } from 'react-router-dom';
+import { RegisterFireForm } from '../components/RegisterFireForm';
 
 export const RegisterFireBasePage = () => {
   return (
-    <div><p>RegisterFireBasePage</p>
-           <Outlet />
+    <div>
+      <Outlet />
+      <RegisterFireForm />
     </div>
   )
 }
