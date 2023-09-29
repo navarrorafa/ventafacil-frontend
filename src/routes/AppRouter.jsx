@@ -13,7 +13,7 @@ import { UserContext } from '../context/UserContext';
 export const AppRouter = () => {
 
    const { user } = useContext(UserContext);
-   const typeUser =user 
+   const {typeUser} =user 
    
 
    
