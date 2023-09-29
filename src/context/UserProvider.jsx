@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { UserContext } from './UserContext';
 import { dataFetch } from '../helpers/dataFetch';
+import { UserContext } from './UserContext';
 
 
 
