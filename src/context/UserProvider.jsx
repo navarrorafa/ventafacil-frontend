@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { UserContext } from './UserContext';
+import { dataFetch } from '../helpers/dataFetch';
+
 
 
 export const UserProvider = ({ children }) => {
+   const urlUid = "url a coger"
+
     const [user, setUser] = useState({
-        uid_firebase: "4564654",
-        email: "rafa@gmail.com",
-        typeUser: "guest"
+        uidFireBase: "45864",
+        emailFireBase: "rafa@gmail.com",
+        rolFireBase: "user",
+        typeUser: "user"
     });
+
+
+  
 
 
     return (
