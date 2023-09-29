@@ -5,7 +5,7 @@ import { dataFetch } from '../../helpers/dataFetch';
 
 export const RegisterFireForm = () => {
 
-  const { data, handleSubmit, handleChange } = useForm('')
+  const { data, handleChange } = useForm('')
   const [datos, setDatos] = useState([])
 
   const url = 'http://localhost:3000/api/v1/auth/register';
@@ -21,6 +21,7 @@ export const RegisterFireForm = () => {
     setDatos(newData)
     const registro = await dataFetch(url, 'POST', data)
     // console.log('newData', newData)
+    
   };
 
   return (
