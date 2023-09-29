@@ -6,7 +6,7 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({
         uid_firebase: "4564654",
         email: "rafa@gmail.com",
-        typeUser: "guest"
+        typeUser: "user"
     });
 
 

@@ -11,7 +11,8 @@ import { useContext } from 'react';
 
 export const AppRouter = () => {
 
-   const { typeUser } = useContext(UserContext);
+   const {  user } = useContext(UserContext);
+   const {typeUser}=user
 
    
 
