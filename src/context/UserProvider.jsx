@@ -8,9 +8,11 @@ export const UserProvider = ({ children }) => {
    const urlUid = "url a coger"
 
     const [user, setUser] = useState({
+
         uidFireBase: "45864",
         emailFireBase: "rafa@gmail.com",
         rolFireBase: "user",
+ 
         typeUser: "user"
     });
 

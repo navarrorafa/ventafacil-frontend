@@ -7,7 +7,7 @@ export const TypeNav = () => {
 
   const { user } = useContext(UserContext);
    const {typeUser} = user
-
+console.log({typeUser})
   return (
     <>
       <div>
