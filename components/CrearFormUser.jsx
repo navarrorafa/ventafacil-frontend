@@ -1,10 +1,10 @@
 
 import { useForm } from '../../hooks/useForm';
-import { useUserManager } from '../hooks/useUserManager';
+import { useUserManager } from '../src/user/hooks/useUserManager';
 import { SelectProvincia } from '../../components/SelectProvincia';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
-import { useDatosUser } from '../hooks/useDatosUser';
+import { useDatosUser } from '../src/user/hooks/useDatosUser';
 
 
 
@@ -170,4 +170,5 @@ export const CrearFormUser = ({ mode }) => {
         </>
     )
 }
+
 
