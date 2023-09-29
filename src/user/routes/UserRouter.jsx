@@ -11,14 +11,14 @@ export const UserRouter = () => {
         <Route path="/publicar" element={<PublicarAnuncioPage />} /> {/*NAVEGA PUBLICAR ANUNCIO*/}
 
         <Route path="/myhome" element={<MiEspacioPage />}> {/*NAVEGA HACIA MY SPACE*/}
-          <Route path="/update/:id" element={<EditarPerfilPage />} /> {/*EDITAR PERFIL*/}
-          <Route path="/sales" element={<HistorialVentasPage />}> {/*ANUNCIOS EN VENTA Y VENDIDOS*/}
-            <Route path="/producto/:id" element={<CardAnuncioPage />} /> {/*VER*/}
-            <Route path="/editarproducto/:id" element={<EditarAnuncioPage />} /> {/*EDITAR*/}
-            <Route path="/borrarproducto/:id" element={<BorrarAnuncioPage />} /> {/*BORRAR*/}
+          <Route path="/myhome/update/:id" element={<EditarPerfilPage />} /> {/*EDITAR PERFIL*/}
+          <Route path="/myhome/sales" element={<HistorialVentasPage />}> {/*ANUNCIOS EN VENTA Y VENDIDOS*/}
+            <Route path="/myhome/sales/producto/:id" element={<CardAnuncioPage />} /> {/*VER*/}
+            <Route path="/myhome/sales/editarproducto/:id" element={<EditarAnuncioPage />} /> {/*EDITAR*/}
+            <Route path="/myhome/sales/borrarproducto/:id" element={<BorrarAnuncioPage />} /> {/*BORRAR*/}
           </Route>
           <Route path="/buy" element={<HistorialComprasPage />}> {/*ANUNCIOS COMPRADOS*/}
-            <Route path="/producto/:id" element={<CardAnuncioPage />} /> {/*DETALLE ANUNCIO COMPRADO*/}
+            <Route path="/buy/producto/:id" element={<CardAnuncioPage />} /> {/*DETALLE ANUNCIO COMPRADO*/}
           </Route>
         </Route>
       </Routes>

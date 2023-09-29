@@ -1,48 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { useFetch } from '../../hooks/useFetch';
+import { dataFetch } from '../../helpers/dataFetch';
 
 export const RegisterFireForm = () => {
 
-  const { data, handleSubmit, handleChange } = useForm()
+  const { data, handleSubmit, handleChange } = useForm('')
+  const [datos, setDatos] = useState([])
 
-  const register = () => {
-    const url = 'http://localhost:3000/api/v1/auth/register';
+  const url = 'http://localhost:3000/api/v1/auth/register';
 
-    const registro = useFetch(url, 'POST', data)
-    console.log(registro)
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+    const newData = data
 
+    register(newData)
+  }
+
+  const register = async (newData) => {
+    setDatos(newData)
+    const registro = await dataFetch(url, 'POST', data)
+    // console.log('newData', newData)
   };
-
-  useEffect(() => {
-    register()
-
-  }, [handleSubmit])
 
   return (
     <div>
       <h1>Registro</h1>
 
-      <form onSubmit={handleSubmit} method='POST'>
+      <form onSubmit={onSubmit} method='POST'>
         <div>
-          <label for="email">Correo electrónico</label>
+          <label htmlFor="email">Correo electrónico</label>
           <input
             type="text"
             id="email"
             name="email"
             placeholder='Introduce email..'
-            value={data}
+            value={data.email}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label for="password">Contraseña</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             type="password"
             id="password"
             name="password"
             placeholder='Introduce contraseña..'
-            value={data}
+            value={data.password}
             onChange={handleChange}
           />
         </div>

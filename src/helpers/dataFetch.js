@@ -15,7 +15,7 @@ export const dataFetch = async (url, method, body = {}, files= false) => {
 
     try {
         if ( method == "POST" || method == "PUT") {
-          console.log("entra en post" , newData)
+        //   console.log("entra en post" , newData)
             options = {
                 method: method,
                 body: JSON.stringify(newData),
@@ -33,7 +33,7 @@ export const dataFetch = async (url, method, body = {}, files= false) => {
 
       const response = await fetch(url,options)
       const data= await response.json()
-      console.log(data)
+    //   console.log(data)
     } catch (error) {
         console.log('FAILED while fetching', error)
         return error

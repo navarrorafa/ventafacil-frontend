@@ -9,7 +9,7 @@ export const RecoverForm = () => {
             <h1>Recuperacion de contraseña</h1>
         <form onSubmit={handleSubmit} method='POST'>
 
-            <label for="email">Correo electrónico</label>
+            <label htmlFor="email">Correo electrónico</label>
             <input
                 type="text"
                 id="email"

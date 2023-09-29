@@ -17,13 +17,13 @@ export const AppRouter = () => {
 
          <Route path="/" element={<HomePage />}>
             <Route path="/galeria" element={<GalleryPage />}>
-               <Route path="/producto/:id" element={<CardAnuncioPage />} />
+               <Route path="/galeria/producto/:id" element={<CardAnuncioPage />} />
             </Route>
          </Route>
 
          <Route path="/categoria" element={<CategoriaPage />}>
-            <Route path="/galeria" element={<GalleryPage />}>
-               <Route path="/producto/:id" element={<CardAnuncioPage />} />
+            <Route path="/categoria/galeria" element={<GalleryPage />}>
+               <Route path="/categoria/galeria/producto/:id" element={<CardAnuncioPage />} />
             </Route>
          </Route>
 

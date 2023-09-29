@@ -8,11 +8,11 @@ export const AuthRouter = () => {
         <>
             <Routes>
                 <Route path="/login" element={<LoginPage />}>
-                    <Route path="/recover" element={<RecoverPage />} />
+                    <Route path="/login/recover" element={<RecoverPage />} />
                 </Route>
 
                 <Route path="/register" element={<RegisterFireBasePage />}>
-                    <Route path="/user" element={<RegisterPage />} />
+                    <Route path="/register/user" element={<RegisterPage />} />
                 </Route>
             </Routes>
         </>

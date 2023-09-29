@@ -3,13 +3,14 @@ import { useForm } from '../../hooks/useForm';
 import { Link } from 'react-router-dom';
 
 export const LoginForm = () => {
-    const { data, handleSubmit, handleChange } = useForm()
+    const { data, handleSubmit, handleChange } = useForm('')
+  
 // FALTA ENVIO A FIREBASE CON FECTCH
     return (
         <div>
             <form onSubmit={handleSubmit} method='POST'>
                 <div>
-                    <label for="email">Correo electrónico</label>
+                    <label htmlFor="email">Correo electrónico</label>
                     <input
                         type="text"
                         id="email"
@@ -19,7 +20,7 @@ export const LoginForm = () => {
                     />
                 </div>
                 <div>
-                    <label for="password">Contraseña</label>
+                    <label htmlFor="password">Contraseña</label>
                     <input
                         type="password"
                         id="password"
