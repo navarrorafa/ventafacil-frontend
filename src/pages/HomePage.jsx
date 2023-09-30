@@ -1,7 +1,13 @@
+import { Buscador } from "../components/Buscador"
+
+
+
 
 
 export const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <>
+      <Buscador route={"/galeria/"} />
+    </>
   )
 }
