@@ -29,9 +29,9 @@ export const useUserManager = () => {
     const updateUser = async (updatedUser, url) => {
         //
         const response = await dataFetch(url, 'PUT', updatedUser);
-    
+       console.log(response)
         if (response) {
-            console.log(response);
+         
             // Atualize o estado 'data' com os dados atualizados, se necessário
             const updatedData = data.map((user) =>
                 user.id === response.id ? response : user

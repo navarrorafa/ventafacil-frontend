@@ -9,11 +9,11 @@ export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState({
 
-        uidFireBase: "45864",
-        emailFireBase: "rafa@gmail.com",
+        uidFireBase: "787987",
+        emailFireBase: "navarro.cadastro@gmail.com",
         rolFireBase: "user",
- 
-        typeUser: "user"
+        typeUser: "guest"
+
     });
 
 
@@ -23,8 +23,7 @@ export const UserProvider = ({ children }) => {
     return (
         <UserContext.Provider value={{ user, setUser }}>
             {children}
+            
         </UserContext.Provider>
     );
 };
-
-

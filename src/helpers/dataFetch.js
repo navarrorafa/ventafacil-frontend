@@ -1,5 +1,5 @@
 export const dataFetch = async (url, method, body = {}, file = false) => {
-
+ 
     let data;
     console.log(url, method, body)
     let options = {};
@@ -24,10 +24,19 @@ export const dataFetch = async (url, method, body = {}, file = false) => {
                 }
             }
         }
-        console.log(newData)
+
         if (method == "DELETE") {
             options = {
                 method: method
+            }
+        }
+
+        if (method === "GET") {
+            options = {
+                method: method,
+                headers: {
+                    "Accept": "application/json"
+                }
             }
         }
 

@@ -1,11 +1,9 @@
-
-import { useForm } from '../../hooks/useForm';
-import { useUserManager } from '../hooks/useUserManager';
-import { SelectProvincia } from '../../components/SelectProvincia';
-import { useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
-import { useDatosUser } from '../hooks/useDatosUser';
-
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
+import { useDatosUser } from "../hooks/useDatosUser";
+import { useUserManager } from "../hooks/useUserManager";
+import { useForm } from "../../hooks/useForm";
+import { SelectProvincia } from "../../components/SelectProvincia";
 
 
 
@@ -15,6 +13,7 @@ export const CrearFormUser = ({ mode }) => {
 
     const { user } = useContext(UserContext);
     const { userData } = useDatosUser()
+  
     
 
     const { emailFireBase, uidFireBase, rolFireBase } = user;
@@ -22,7 +21,7 @@ export const CrearFormUser = ({ mode }) => {
 
     const { createUser, updateUser } = useUserManager();
     
-    const { handleChange, handleSubmit, data, submited } = useForm()
+    const { handleChange, data} = useForm()
 
     const onSubmit = async (ev) => {
         ev.preventDefault();
