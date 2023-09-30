@@ -11,15 +11,7 @@ export const NavGuest = () => {
           to="/auth/login" 
           className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
         >
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <NavLink 
-          to="/auth/register" 
-          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-        >
-          Register
+          Register & Login
         </NavLink>
       </li>
 

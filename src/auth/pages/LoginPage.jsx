@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom';
-import { LoginForm } from '../components/LoginForm';
+import { LogRegForm } from '../components/LogRegForm';
 
 export const LoginPage = () => {
   return (
     <div>
       <Outlet />
-      <LoginForm />
+      <LogRegForm />
     </div>
   )
 }

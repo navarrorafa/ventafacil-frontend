@@ -1,7 +1,7 @@
 export const dataFetch = async (url, method, body = {}, file = false) => {
 
     let data;
-    console.log(url, method, body)
+    // console.log(url, method, body)
     let options = {};
     let newData = {}
 
@@ -24,7 +24,7 @@ export const dataFetch = async (url, method, body = {}, file = false) => {
                 }
             }
         }
-        console.log(newData)
+        // console.log(newData)
         if (method == "DELETE") {
             options = {
                 method: method
