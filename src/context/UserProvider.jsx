@@ -5,16 +5,15 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 const auth = getAuth(firebaseApp);
 
 export const UserProvider = ({ children }) => {
-    
+
     const [user, setUser] = useState({
 
-        uidFireBase: "45864",
-        emailFireBase: "rafa@gmail.com",
-        rolFireBase: "user",
- 
+
         typeUser: "guest"
     });
-
+    const updateUser = (newData) => {
+        setUser(newData)
+     }
     // onAuthStateChanged(auth, )
 
 
@@ -22,7 +21,7 @@ export const UserProvider = ({ children }) => {
 
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser, updateUser }}>
             {children}
         </UserContext.Provider>
     );

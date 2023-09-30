@@ -5,8 +5,8 @@ import { Outlet } from 'react-router-dom';
 export const RecoverPage = () => {
     return (
         <div>
-            <Outlet />
             <RecoverForm />
+            <Outlet />
         </div>
     );
 };

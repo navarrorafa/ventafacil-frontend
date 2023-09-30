@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { dataFetch } from '../../helpers/dataFetch';
+import { register } from '../helpers/register';
+import { UserContext } from '../../context/UserContext';
 
 export const LogRegForm = () => {
     const [logeando, setLogeando] = useState(false)
     const { data, handleChange } = useForm('')
     const [envio, setEnvio] = useState([])
-    const url = 'http://localhost:3000/api/v1/auth/register';
+    const [datauser, setDatauser] = useState({})
+    
     const onSubmit = (ev) => {
         ev.preventDefault();
         const newData = data
@@ -17,11 +19,13 @@ export const LogRegForm = () => {
 
     const logReg = async (newData) => {
         setEnvio(newData)
-        !logeando ?
-            await dataFetch(url, 'POST', data) :
-            console.log('logeate')
+        const {email, password} = data
+        
+          const datosFire =  await register(email, password)
+            setDatauser(datosFire)
     };
-
+    const { user } = useContext(UserContext);
+    console.log(user)
     return (
         <div>
             <h1>{logeando ? 'Inicio de sesión' : 'Registro '}</h1>
@@ -50,7 +54,7 @@ export const LogRegForm = () => {
                 />
                 <input type="submit" value={logeando ? 'Inicia sesión' : 'Regístrate'} />
 
-                {logeando && <Link to='recover' >Olvidé la contraseña</Link>}
+                {logeando && <Link to='/auth/recover' >Olvidé la contraseña</Link>}
             </form>
         </div>
     )
