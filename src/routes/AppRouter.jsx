@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { HomePage, CardAnuncioPage, CategoriaPage} from '../pages';
+import { HomePage, CardAnuncioPage, CategoriaPage, GalleryPage} from '../pages';
 import { AuthRouter } from '../auth/routes/AuthRouter';
 import { UserRouter } from '../user/routes/UserRouter';
 import { AdminRouter } from '../admin/routes/AdminRouter';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
-import GalleryPage from '../pages/GalleryPage';
+
 
 
 

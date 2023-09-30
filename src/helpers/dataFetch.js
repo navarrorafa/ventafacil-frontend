@@ -23,6 +23,7 @@ export const dataFetch = async (url, method, body = {}, file = false) => {
                     "Content-type": "application/json",
                 }
             }
+            console.log(newData)
         }
 
         if (method == "DELETE") {

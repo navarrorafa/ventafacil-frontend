@@ -7,6 +7,7 @@ export const SearchProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const updateSearchTerm = (newTerm) => {
+    console.log('Update search term triggered', newTerm)
     setSearchTerm(newTerm);
   };
 
