@@ -1,9 +1,13 @@
 import React from 'react'
 import { dataFetch } from '../../helpers/dataFetch';
 import { useForm } from "../../hooks/useForm";
+import { useDatosAds } from '../hooks/useDatosAds';
 
 export const EditarForm = () => {
-    const url = "http://localhost:3000/api/v1/ventafacil/ads/actualizar/62"
+    const { adData } = useDatosAds()
+
+console.log(adData)
+    const url = "http://localhost:3000/api/v1/ventafacil/ads/actualizar/108"
     const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
   
     const onSubmit = (ev) => {
@@ -29,10 +33,10 @@ export const EditarForm = () => {
       <>
         <pre>{JSON.stringify(data)}</pre>
         <form encType='multipart/form-data' onSubmit={onSubmit} method="PUT">
-          <input type="text" onChange={handleChange} value={data.Producto} placeholder="Producto" name='producto' />
-          <textarea name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
-          <input type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
-          <select name='categoria' value={data.Categoria} onChange={handleChange} >
+          <input type="text" onChange={handleChange} defaultValue={adData.producto}   placeholder="Producto" name='producto' />
+          <textarea name="descripcion" onChange={handleChange} defaultValue={adData.descripcion} id="descripcion" cols="30" rows="10"></textarea>
+          <input type="text" onChange={handleChange} defaultValue={adData.precio} placeholder="Precio" name='precio' />
+          <select name='categoria' defaultValue={adData.categoria} onChange={handleChange} >
             <option value="electronica">electronica</option>
             <option value=" ropaAccesorios">Ropa y accesorios</option>
             <option value=" hogarJardin"> Hoga y jardín</option>
@@ -42,7 +46,7 @@ export const EditarForm = () => {
             <option value=" alimentosBebidas"> Alimentación</option>
             <option value=" librosMusica"> Libros y música</option>
           </select>
-          <select name="zona_geografica" value={data.Zona_Geografica} onChange={handleChange}>
+          <select name="zona_geografica" defaultValue={adData.zona_geografica} onChange={handleChange}>
             <option value="">-------</option>
             <option value="alava">Alava</option>
             <option value="albacete">Albacete</option>
@@ -97,8 +101,8 @@ export const EditarForm = () => {
             <option value="zaragoza">Zaragoza</option>
           </select>
           <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-          <input  type="text" name="producto_stripe" value={data.Producto_Stripe} onChange={handleChange} placeholder='Producto_Stripe' />
-          <input  type="text" value={data.Producto_Stripe} onChange={handleChange} name="ID_vendedor" />
+          <input  type="text" name="producto_stripe" defaultValue={adData.producto_stripe}  placeholder='Producto_Stripe' />
+          <input  type="text" name="ID_vendedor" defaultValue={adData.id_vendedor} onChange={handleChange}  />
           <input hidden type="text" name="nombreVendedor" />
   
           <input type="submit" />
