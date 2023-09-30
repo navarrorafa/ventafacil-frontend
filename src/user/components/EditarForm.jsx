@@ -7,7 +7,7 @@ export const EditarForm = () => {
     const { adData } = useDatosAds()
 
 console.log(adData)
-    const url = "http://localhost:3000/api/v1/ventafacil/ads/actualizar/62"
+    const url = "http://localhost:3000/api/v1/ventafacil/ads/actualizar/108"
     const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
   
     const onSubmit = (ev) => {
@@ -101,7 +101,7 @@ console.log(adData)
             <option value="zaragoza">Zaragoza</option>
           </select>
           <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-          <input  type="text" name="producto_stripe" defaultValue={adData.producto_stripe} onChange={handleChange} placeholder='Producto_Stripe' />
+          <input  type="text" name="producto_stripe" defaultValue={adData.producto_stripe}  placeholder='Producto_Stripe' />
           <input  type="text" name="ID_vendedor" defaultValue={adData.id_vendedor} onChange={handleChange}  />
           <input hidden type="text" name="nombreVendedor" />
   

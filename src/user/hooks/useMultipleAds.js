@@ -1,17 +1,14 @@
+import React from 'react'
 import { useContext, useEffect, useState } from "react";
 
 import { dataFetch } from "../../helpers/dataFetch";
 
-export const useDatosAds = () => {
-    const [adData, setAdData] = useState({});
+
+export const useMultipleAds = () => {
+
+    const [multipleAdData, setmultipleAdData] = useState({});
     const [loading, setLoading] = useState(false);
-    
-    const url = `http://localhost:3000/api/v1/ventafacil/ads/anuncio/108`;
-    
-
-
-  
-
+    const url= `http://localhost:3000/api/v1/ventafacil/ads`;
 
     const fetchData = async () => {
      
@@ -22,8 +19,10 @@ export const useDatosAds = () => {
                 const res = await dataFetch(url, 'GET');
              
                 const data = res.data;  
+              
+              setmultipleAdData(data);
               console.log(data)
-                setAdData(data);
+              
             } catch (error) {
                 console.error('Failed to fetch ad data:', error);
             }
@@ -36,10 +35,5 @@ export const useDatosAds = () => {
         fetchData();
 
     }, []);
- 
-    
-
-    
- 
-    return { adData, loading };
+  return {multipleAdData, loading}
 }
