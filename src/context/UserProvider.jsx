@@ -6,14 +6,11 @@ const auth = getAuth(firebaseApp);
 
 export const UserProvider = ({ children }) => {
 
-    const [user, setUser] = useState({
-
-
-        typeUser: "guest"
-    });
+    const [user, setUser] = useState({});
     const updateUser = (newData) => {
         setUser(newData)
      }
+     console.log(user)
     // onAuthStateChanged(auth, )
 
 

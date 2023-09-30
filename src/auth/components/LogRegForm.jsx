@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { register } from '../helpers/register';
 import { UserContext } from '../../context/UserContext';
+import { login, register } from '../helpers';
 
 export const LogRegForm = () => {
     const [logeando, setLogeando] = useState(false)
     const { data, handleChange } = useForm('')
     const [envio, setEnvio] = useState([])
-    const [datauser, setDatauser] = useState({})
-    
+    const { updateUser } = useContext(UserContext)
+    const navigate = useNavigate()
+
     const onSubmit = (ev) => {
         ev.preventDefault();
         const newData = data
@@ -19,13 +20,14 @@ export const LogRegForm = () => {
 
     const logReg = async (newData) => {
         setEnvio(newData)
-        const {email, password} = data
-        
-          const datosFire =  await register(email, password)
-            setDatauser(datosFire)
+
+        const { email, password } = data
+
+        logeando ?
+            await login(email, password, updateUser) && navigate('/auth/recover') :
+            await register(email, password, updateUser) && navigate('/auth/recover')
     };
-    const { user } = useContext(UserContext);
-    console.log(user)
+
     return (
         <div>
             <h1>{logeando ? 'Inicio de sesión' : 'Registro '}</h1>
