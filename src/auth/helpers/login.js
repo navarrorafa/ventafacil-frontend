@@ -14,17 +14,12 @@ export const login = async (email, password, updateUser) => {
             rolFireBase: loggedIn.user.displayName
         };
         updateUser(profileData)
-        return {
-            ok: true,
-            profileData
-        }
+
     } catch (error) {
         if (error.code === 'auth/invalid-login-credentials') {
 
-            return {
-                ok: false,
-                error: 'Usuario o contraseña incorrectos'
-            }
+            alert ('Usuario o contraseña incorrectos')
+
         } else {
             console.log(error)
         };

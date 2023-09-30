@@ -16,9 +16,14 @@ export const register = async (email, password, updateUser) => {
         updateUser(profileData)
 
     } catch (error) {
-        if (error.code === 'auth/email-already-in-use') {
+        if (error.code === 'auth/weak-password') {
+
+            alert('La contraseña debe ser de al menos seis caracteres');
+
+        } else if (error.code === 'auth/email-already-in-use') {
 
             alert('Ya existe una cuenta asociada a ese email');
+            
         } else {
             console.log(error);
         };

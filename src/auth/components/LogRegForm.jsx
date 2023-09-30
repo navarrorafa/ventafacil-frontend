@@ -50,7 +50,7 @@ export const LogRegForm = () => {
                     type="password"
                     id="password"
                     name="password"
-                    placeholder='Contraseña'
+                    placeholder='Contraseña min 6 caracteres'
                     value={data.password}
                     onChange={handleChange}
                 />
