@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import React from 'react'
-import { LoginPage, RegisterPage, RecoverPage } from '../pages';
+import { LogRegPage, RecoverPage } from '../pages';
 
 export const AuthRouter = () => {
     return (
@@ -8,10 +8,8 @@ export const AuthRouter = () => {
         <>
 
             <Routes>
-                <Route path="login" element={<LoginPage />}>
-                    <Route path="register" element={<RegisterPage />} />
-                </Route>
-
+                <Route path="login" element={<LogRegPage />} />
+                
                 <Route path="recover" element={<RecoverPage />} />
             </Routes>
         </>

@@ -7,31 +7,31 @@ const auth = getAuth(firebaseApp);
 export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState({});
-    const [userLogeado, setUserLogeado] = useState(null)
+    // const [userLogeado, setUserLogeado] = useState(null)
     const updateUser = (newData) => {
         setUser(newData)
     }
     console.log(user)
-    const keepLogedUser = async () => {
-        await onAuthStateChanged(auth, (userFirebase) => {
-            if (userFirebase) {
-                const userData = {
-                    uid: user.uidFireBase,
-                    email: user.emailFireBase,
-                    rol: user.rolFireBase
-                };
-                setUserLogeado(userData)
-            } else {
-                setUserLogeado(null)
-            }
-        })
-    }
+    // const keepLogedUser = async () => {
+    //     await onAuthStateChanged(auth, (userFirebase) => {
+    //         if (userFirebase) {
+    //             const userData = {
+    //                 uid: user.uidFireBase,
+    //                 email: user.emailFireBase,
+    //                 rol: user.rolFireBase
+    //             };
+    //             setUserLogeado(userData)
+    //         } else {
+    //             setUserLogeado(null)
+    //         }
+    //     })
+    // }
 
 
 
 
     return (
-        <UserContext.Provider value={{ user, setUser, updateUser, keepLogedUser }}>
+        <UserContext.Provider value={{ user, setUser, updateUser }}>
             {children}
         </UserContext.Provider>
     );

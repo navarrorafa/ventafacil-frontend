@@ -5,13 +5,13 @@ const auth = getAuth(firebaseApp);
 export const login = async (email, password, updateUser) => {
 
     try {
-        const loggedIn = await signInWithEmailAndPassword(auth, email, password);
+        const resp = await signInWithEmailAndPassword(auth, email, password);
 
         //Datos necesarios para formulario SQL
         const profileData = {
-            uidFireBase: loggedIn.user.uid,
-            emailFireBase: loggedIn.user.email,
-            rolFireBase: loggedIn.user.displayName
+            uidFireBase: resp.user.uid,
+            emailFireBase: resp.user.email,
+            rolFireBase: resp.user.displayName
         };
         updateUser(profileData)
 

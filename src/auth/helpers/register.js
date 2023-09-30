@@ -4,14 +4,14 @@ const auth = getAuth(firebaseApp);
 
 export const register = async (email, password, updateUser) => {
     try {
-        const regUser = await createUserWithEmailAndPassword(auth, email, password);
+        const resp = await createUserWithEmailAndPassword(auth, email, password);
         //Almacenamiento del rol en la propiedad displayName
-        await updateProfile(regUser.user, { displayName: 'user' })
+        await updateProfile(resp.user, { displayName: 'user' })
         //Datos necesarios para formulario SQL
         const profileData = {
-            uidFireBase: regUser.user.uid,
-            emailFireBase: regUser.user.email,
-            rolFireBase: regUser.user.displayName
+            uidFireBase: resp.user.uid,
+            emailFireBase: resp.user.email,
+            rolFireBase: resp.user.displayName
         };
         updateUser(profileData)
 
@@ -20,7 +20,8 @@ export const register = async (email, password, updateUser) => {
 
             alert('La contraseña debe ser de al menos seis caracteres');
 
-        } else if (error.code === 'auth/email-already-in-use') {
+        }
+        if (error.code === 'auth/email-already-in-use') {
 
             alert('Ya existe una cuenta asociada a ese email');
             

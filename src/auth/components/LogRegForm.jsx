@@ -16,6 +16,9 @@ export const LogRegForm = () => {
         const newData = data
 
         logReg(newData)
+        logeando?
+        navigate('/auth/recover') :
+        navigate('/auth/register')
     }
 
     const logReg = async (newData) => {
@@ -24,8 +27,9 @@ export const LogRegForm = () => {
         const { email, password } = data
 
         logeando ?
-            await login(email, password, updateUser) && navigate('/auth/recover') :
-            await register(email, password, updateUser) && navigate('/auth/recover')
+            await login(email, password, updateUser) :
+            await register(email, password, updateUser)
+
     };
 
     return (
@@ -50,7 +54,7 @@ export const LogRegForm = () => {
                     type="password"
                     id="password"
                     name="password"
-                    placeholder='Contraseña min 6 caracteres'
+                    placeholder='Contraseña'
                     value={data.password}
                     onChange={handleChange}
                 />

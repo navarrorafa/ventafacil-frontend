@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { CrearFormUser } from '../../user/components/CrearFormUser';
+import { CrearFormUser } from '../components/CrearFormUser';
 
 
 export const RegisterPage = () => {
@@ -9,5 +9,5 @@ export const RegisterPage = () => {
       <Outlet />
     </section>
 
-  )
-}
+  );
+};
