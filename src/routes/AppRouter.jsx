@@ -1,10 +1,11 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { HomePage, CardAnuncioPage, CategoriaPage, GalleryPage } from '../pages';
+import { HomePage, CardAnuncioPage, CategoriaPage} from '../pages';
 import { AuthRouter } from '../auth/routes/AuthRouter';
 import { UserRouter } from '../user/routes/UserRouter';
 import { AdminRouter } from '../admin/routes/AdminRouter';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
+import GalleryPage from '../pages/GalleryPage';
 
 
 
@@ -26,14 +27,16 @@ export const AppRouter = () => {
 
       <Routes>
 
-         <Route path="/" element={<HomePage />}>
-            <Route path="galeria" element={<GalleryPage />}>
-               <Route path="producto/:id" element={<CardAnuncioPage />} />
-            </Route>
-         </Route>
+<Route path="/" element={<HomePage />}>
+
+        <Route path="producto/:id" element={<CardAnuncioPage />} />
+
+</Route>
+
+<Route path="/galeria/:id" element={<GalleryPage />} />
 
          <Route path="/categoria" element={<CategoriaPage />}>
-            <Route path="galeria" element={<GalleryPage />}>
+            <Route path="galeria/:id" element={<GalleryPage />}>
                <Route path="producto/:id" element={<CardAnuncioPage />} />
             </Route>
          </Route>
@@ -47,6 +50,8 @@ export const AppRouter = () => {
                <Route path="/auth/*" element={<AuthRouter />} />
             )
          }
+             
+         <Route path='/*' element={<Navigate to='/' />} />
 
       </Routes>
 

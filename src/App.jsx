@@ -1,5 +1,6 @@
 
 import {TypeNav} from './components'
+import { SearchProvider } from './context/SearchContext'
 import { UserProvider } from './context/UserProvider'
 import { AppRouter } from './routes/AppRouter'
 
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <>
+     <SearchProvider>
     <UserProvider>
      <header>
       <TypeNav/>
@@ -17,6 +19,7 @@ function App() {
       <AppRouter/>
      </main>
      </UserProvider>
+     </SearchProvider>
     </>
   )
 }

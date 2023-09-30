@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
         uidFireBase: "787987",
         emailFireBase: "navarro.cadastro@gmail.com",
         rolFireBase: "user",
-        typeUser: "guest"
+        typeUser: "user"
 
     });
 
