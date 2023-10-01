@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export const CardAnuncio = ({ ruta_foto, categoria, producto, precio }) => {
+
+export const CardAnuncio = ({ ruta_foto, categoria, producto, precio,id_anuncio }) => {
 
     const [hasError, setHasError] = useState(false);
 
@@ -16,6 +18,7 @@ export const CardAnuncio = ({ ruta_foto, categoria, producto, precio }) => {
                 <p>{categoria}</p>
                 <p>{producto}</p>
                 <p>{precio}</p>
+                <Link to={`/producto/${id_anuncio}`}>Ver mas </Link>
                
             </div>
           </div>

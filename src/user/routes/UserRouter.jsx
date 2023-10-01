@@ -1,10 +1,10 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { CardAnuncioPage } from "../../pages"
-import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage, MiEspacioPage, PublicarAnuncioPage } from "../pages"
+import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage,MiEspacioPage, PublicarAnuncioPage } from "../pages"
 import { EditarAnuncioPage } from '../pages/EditarAnuncioPage';
 import { EliminarAnuncioPage } from '../pages/EliminarAnuncioPage';
 import { TodosAnunciosPage } from '../pages/TodosAnunciosPage';
 import { TodosMisAnunciosPage } from '../pages/TodosMisAnunciosPage';
+
 
 
 export const UserRouter = () => {
@@ -15,8 +15,10 @@ export const UserRouter = () => {
   
    <>
   <Routes>
+
   <Route path="articulos" element={<TodosAnunciosPage />} />
   <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
+
     <Route path="publicar" element={<PublicarAnuncioPage />} />
 
     <Route path="editar/:id_anuncio" element={<EditarAnuncioPage />} />
@@ -25,11 +27,11 @@ export const UserRouter = () => {
       <Route path="update/:id" element={<EditarPerfilPage />} />
 
       <Route path="sales" element={<HistorialVentasPage />}>
-        <Route path="producto/:id" element={<CardAnuncioPage />} />
+        
       </Route>
       
       <Route path="buy" element={<HistorialComprasPage />}>
-        <Route path="producto/:id" element={<CardAnuncioPage />} />
+       
       </Route>
     </Route>
     </Routes>
