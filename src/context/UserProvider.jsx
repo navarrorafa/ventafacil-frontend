@@ -10,9 +10,9 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({
 
         uidFireBase: "787987",
-        emailFireBase: "navarro.cadastro@gmail.com",
+        // emailFireBase: "navarro.cadastro@gmail.com",
         rolFireBase: "user",
-        typeUser: "admin"
+        typeUser: "user"
 
     });
 
