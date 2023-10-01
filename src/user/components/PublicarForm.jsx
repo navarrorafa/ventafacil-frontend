@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from "../../hooks/useForm";
 import { dataFetch } from '../../helpers/dataFetch';
-
+import { UserProvider } from '../../context/UserProvider';
+import { UserContext } from '../../context/UserContext';
 export const PublicarForm = ({ mode }) => {
+    const {user}=useContext(UserContext)
+const {uidFireBase} = user
+
     const url = "http://localhost:3000/api/v1/ventafacil/ads/anunciar"
     const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
     const onSubmit = (ev) => {
@@ -89,7 +93,7 @@ export const PublicarForm = ({ mode }) => {
             <option value="zaragoza">Zaragoza</option>
           </select>
           <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-          <input hidden type="text" name="idVendedor" />
+          <input  type="checkbox" required name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
           <input hidden type="text" name="nombreVendedor" />
           <input type="submit" />
         </form>
