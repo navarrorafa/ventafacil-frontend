@@ -6,6 +6,7 @@ import { AdminRouter } from '../admin/routes/AdminRouter';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import CardAnuncioPage from '../pages/CardAnuncioPage';
+import { PintarUnaCategoria } from '../user/pages/PintarUnaCategoria';
 
 
 export const AppRouter = () => {
@@ -18,16 +19,13 @@ export const AppRouter = () => {
       <Routes>
 
          <Route path="/" element={<HomePage />}/>
-
          <Route path="producto/:id" element={<CardAnuncioPage />} />
          <Route path="/galeria/:id" element={<GalleryPage />} />
          <Route path="/producto/:id" element={<CardAnuncioPage />} />
          <Route path="/categoria" element={<CategoriaPage />}>
-            <Route path="galeria/:id" element={<GalleryPage />}>
-
-            </Route>
+         
          </Route>
-
+         <Route path="anunciosporcat/:nombre" element={<PintarUnaCategoria />} />
          {
             rolFireBase === 'user' ? (
                <Route path="/user/*" element={<UserRouter />} />

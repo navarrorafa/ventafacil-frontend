@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage, MiEspacioPage, PublicarAnuncioPage, RegisterPage, TodosMisAnunciosPage, EditarAnuncioPage, EliminarAnuncioPage, TodosAnunciosPage } from "../pages"
+import { PintarUnaCategoria } from '../pages/PintarUnaCategoria';
 
 export const UserRouter = () => {
   return (
@@ -9,7 +10,6 @@ export const UserRouter = () => {
         <Route path="register" element={<RegisterPage />} />
         <Route path="articulos" element={<TodosAnunciosPage />} />
         <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
-
         <Route path="publicar" element={<PublicarAnuncioPage />} />
 
         <Route path="editar/:id_anuncio" element={<EditarAnuncioPage />} />
