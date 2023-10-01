@@ -13,6 +13,13 @@ export const NavUser = () => {
                 </li>
                 <li>
                     <NavLink
+                        to="/user/misanuncios"
+                        className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+                        Mis anuncios
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
                         to="/user/myhome"
                         className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
                         Mi Espacio        
