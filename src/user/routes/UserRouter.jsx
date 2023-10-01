@@ -2,8 +2,7 @@ import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage,MiEspacioPage, PublicarAnuncioPage } from "../pages"
 import { EditarAnuncioPage } from '../pages/EditarAnuncioPage';
 import { EliminarAnuncioPage } from '../pages/EliminarAnuncioPage';
-import { TodosAnunciosPage } from '../pages/TodosAnunciosPage';
-import { TodosMisAnunciosPage } from '../pages/TodosMisAnunciosPage';
+
 
 
 
