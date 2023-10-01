@@ -5,7 +5,7 @@ const auth = getAuth(firebaseApp);
 export const logout = async (updateUser) => {
     try {
         await signOut(auth)
-        updateUser(null)
+        updateUser('')
     } catch (error) {
         console.error('Error:', error);
     }

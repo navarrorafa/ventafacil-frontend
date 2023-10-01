@@ -11,7 +11,6 @@ export const UserProvider = ({ children }) => {
     const updateUser = (newData) => {
         setUser(newData)
     }
-    console.log(user)
     // const keepLogedUser = async () => {
     //     await onAuthStateChanged(auth, (userFirebase) => {
     //         if (userFirebase) {
@@ -26,9 +25,6 @@ export const UserProvider = ({ children }) => {
     //         }
     //     })
     // }
-
-
-
 
     return (
         <UserContext.Provider value={{ user, setUser, updateUser }}>

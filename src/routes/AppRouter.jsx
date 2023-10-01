@@ -11,7 +11,7 @@ import CardAnuncioPage from '../pages/CardAnuncioPage';
 export const AppRouter = () => {
 
    const { user } = useContext(UserContext);
-   const { typeUser } = user
+   const { rolFireBase } = user
 
    return (
 
@@ -29,9 +29,9 @@ export const AppRouter = () => {
          </Route>
 
          {
-            typeUser === 'user' ? (
+            rolFireBase === 'user' ? (
                <Route path="/user/*" element={<UserRouter />} />
-            ) : typeUser === 'admin' ? (
+            ) : rolFireBase === 'admin' ? (
                <Route path="/admin/*" element={<AdminRouter />} />
             ) : (
                <Route path="/auth/*" element={<AuthRouter />} />

@@ -5,9 +5,9 @@ import { UserContext } from "../context/UserContext";
 
 export const TypeNav = () => {
 
-  const { user } = useContext(UserContext);
-   const {typeUser} = user
-// console.log({typeUser})
+  const { user, updateUser } = useContext(UserContext);
+   const {rolFireBase} = user
+
   return (
     <>
       <div>
@@ -34,12 +34,12 @@ export const TypeNav = () => {
               </NavLink>
             </li>
             {
-              typeUser === 'user' ? (
+              rolFireBase === 'user' ? (
                 <>
                   <NavUser />
                   <BottonLogout />
                 </>
-              ) : typeUser === 'admin' ? (
+              ) : rolFireBase === 'admin' ? (
                 <>
                   <NavAdmin />
                   <BottonLogout />
