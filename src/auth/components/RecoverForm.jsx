@@ -1,21 +1,25 @@
 import React, { useState } from 'react'
 import { useForm } from '../../hooks/useForm';
+import { recover } from '../helpers';
+import { useNavigate } from 'react-router';
 
 export const RecoverForm = () => {
     const { data, handleChange } = useForm('')
     const [envio, setEnvio] = useState([])
+    const navigate = useNavigate()
 
     const onSubmit = (ev) => {
         ev.preventDefault();
         const newData = data
 
-        logReg(newData)
+        logReg(newData);
+        navigate('/auth/login')
     }
     const logReg = async (newData) => {
         setEnvio(newData)
-        // console.log('email enviado', newData)
-        const {email} = newData
-        alert (`Email enviado a ${email}, revisa tu correo`)
+        
+        const {email} = data
+        await recover(email);
     };
 
     return (
