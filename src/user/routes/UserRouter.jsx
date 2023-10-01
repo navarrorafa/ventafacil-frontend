@@ -1,48 +1,32 @@
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage,MiEspacioPage, PublicarAnuncioPage } from "../pages"
-import { EditarAnuncioPage } from '../pages/EditarAnuncioPage';
-import { EliminarAnuncioPage } from '../pages/EliminarAnuncioPage';
-
-
-
+import { Routes, Route } from 'react-router-dom';
+import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage, MiEspacioPage, PublicarAnuncioPage, RegisterPage, TodosMisAnunciosPage, EditarAnuncioPage, EliminarAnuncioPage, TodosAnunciosPage } from "../pages"
 
 export const UserRouter = () => {
-    return (
+  return (
 
-   
+    <>
+      <Routes>
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="articulos" element={<TodosAnunciosPage />} />
+        <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
 
-  
-   <>
-  <Routes>
+        <Route path="publicar" element={<PublicarAnuncioPage />} />
 
-  <Route path="articulos" element={<TodosAnunciosPage />} />
-  <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
+        <Route path="editar/:id_anuncio" element={<EditarAnuncioPage />} />
+        <Route path="eliminar/:id_anuncio" element={<EliminarAnuncioPage />} />
+        <Route path="myhome" element={<MiEspacioPage />}>
+          <Route path="update/:id" element={<EditarPerfilPage />} />
 
-    <Route path="publicar" element={<PublicarAnuncioPage />} />
+          <Route path="sales" element={<HistorialVentasPage />}>
 
-    <Route path="editar/:id_anuncio" element={<EditarAnuncioPage />} />
-    <Route path="eliminar/:id_anuncio" element={<EliminarAnuncioPage />} />
-    <Route path="myhome" element={<MiEspacioPage />}>
-      <Route path="update/:id" element={<EditarPerfilPage />} />
+          </Route>
 
-      <Route path="sales" element={<HistorialVentasPage />}>
-        
-      </Route>
-      
-      <Route path="buy" element={<HistorialComprasPage />}>
-       
-      </Route>
-    </Route>
-    </Routes>
+          <Route path="buy" element={<HistorialComprasPage />}>
+
+          </Route>
+        </Route>
+      </Routes>
     </>
 
- 
-
-
-
-
-     
-
-
-    )
-}
+  );
+};

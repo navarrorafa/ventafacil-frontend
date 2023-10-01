@@ -14,7 +14,7 @@ export const Buscador = ({ route }) => {
     setTempSearch('');  // Isso limpa o campo de busca
   };
 
-  console.log('tempSearch:', tempSearch);
+  // console.log('tempSearch:', tempSearch);
 
   return (
     <form onSubmit={handleSearch}>

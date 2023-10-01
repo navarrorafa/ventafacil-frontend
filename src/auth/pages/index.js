@@ -1,3 +1,2 @@
-export * from "./LoginPage"
-export * from "./RegisterPage"
-export * from "./RegisterFireBasePage"
+export * from "./LogRegPage"
+export * from "./RecoverPage"

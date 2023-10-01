@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from "../../hooks/useForm";
 import { dataFetch } from '../../helpers/dataFetch';
 import { UserProvider } from '../../context/UserProvider';
@@ -8,7 +8,7 @@ export const PublicarForm = ({ mode }) => {
 const {uidFireBase} = user
 
     const url = "http://localhost:3000/api/v1/ventafacil/ads/anunciar"
-    const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
+    const { handleChange, handleFileChange, data, file } = useForm()
     const onSubmit = (ev) => {
     ev.preventDefault()
      const newAd = data
@@ -30,13 +30,13 @@ const {uidFireBase} = user
           <input type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
           <select name='categoria' value={data.Categoria} onChange={handleChange} >
             <option value="electronica">electronica</option>
-            <option value=" ropaAccesorios">Ropa y accesorios</option>
-            <option value=" hogarJardin"> Hoga y jardín</option>
-            <option value=" deportesAireLibre"> Deportes y aire libre</option>
-            <option value=" saludBelleza"> Salud y belleza</option>
-            <option value=" juguetesJuegos"> Juguetes y juegos</option>
-            <option value=" alimentosBebidas"> Alimentación</option>
-            <option value=" librosMusica"> Libros y música</option>
+            <option value="ropaAccesorios">Ropa y accesorios</option>
+            <option value="hogarJardin"> Hoga y jardín</option>
+            <option value="deportesAireLibre"> Deportes y aire libre</option>
+            <option value="saludBelleza"> Salud y belleza</option>
+            <option value="juguetesJuegos"> Juguetes y juegos</option>
+            <option value="alimentosBebidas"> Alimentación</option>
+            <option value="librosMusica"> Libros y música</option>
           </select>
           <select name="zona_geografica" value={data.Zona_Geografica} onChange={handleChange}>
             <option value="">-------</option>

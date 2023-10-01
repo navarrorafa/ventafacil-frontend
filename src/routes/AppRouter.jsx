@@ -8,29 +8,16 @@ import { UserContext } from '../context/UserContext';
 import CardAnuncioPage from '../pages/CardAnuncioPage';
 
 
-
-
-
-
 export const AppRouter = () => {
-
 
    const { user } = useContext(UserContext);
    const { typeUser } = user
 
-
-
-
-
    return (
-
-
 
       <Routes>
 
          <Route path="/" element={<HomePage />}/>
-
-           
 
          <Route path="producto/:id" element={<CardAnuncioPage />} />
          <Route path="/galeria/:id" element={<GalleryPage />} />
@@ -54,13 +41,6 @@ export const AppRouter = () => {
          <Route path='/*' element={<Navigate to='/' />} />
 
       </Routes>
-
-
-
-
-
-
-
 
    )
 }
