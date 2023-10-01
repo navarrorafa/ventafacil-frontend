@@ -1,35 +1,41 @@
 import { CardCategoria } from "../components/CardCategoria";
-import { dataFetch } from "../helpers/dataFetch";
-import { useResultado } from "../hooks/useResultado";
-import { useDatosCats } from "../user/hooks/useDatosCats";
+// import { dataFetch } from "../helpers/dataFetch";
+import { useFetch } from "../hooks/useFetch";
+// import { useResultado } from "../hooks/useResultado";
+// import { useDatosCats } from "../user/hooks/useDatosCats";
 
 
-export const CategoriaPage = async () => {
+export const CategoriaPage =  () => {
+
+  const url = "http://localhost:3000/api/v1/ventafacil/categories";
+  const method = 'GET';
+  const response =  useFetch(url, method);
+
+
+
+  if (!response.ok || !response.data) {
+    return <div>Error or Loading...</div>;
+}
+
+const {data} = response ;
+console.log({data} )
  
-  
-  const url = "http://localhost:3000/api/v1/ventafacil/categories"
-   
-  
 
-   
-  const data = await dataFetch(url, "GET");
-console.log(data)
-  
   return (
     <>
-   
-    <section>
-    {
-        data.map((item, index) => (
-        <CardCategoria
-            key={index}
-            {...item}
-          />
-        ))
-      }
-    </section>
+
+      <section>
+        {
+          data.map((item) => (
+            <CardCategoria
+              key={item.id_categoria}
+              {...item}
+            />
+          ))
+        }
+      </section>
     </>
   );
 
-  
+
 }

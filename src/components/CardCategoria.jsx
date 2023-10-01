@@ -1,19 +1,19 @@
-import React from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
-export const CardCategoria = (descripcion, ruta_foto) => {
-    
+export const CardCategoria = ({nombre, descripcion}) => {
 
-    
 
-    return (
-        <>
-          <div>
-            <div>
-                <img src="" alt="" />
-                <p>{descripcion}</p>
-                <img src={ruta_foto} alt="" />
-            </div>
-          </div>
-        </>
-    );
+
+
+  return (
+    <>
+      <div>
+        <div>
+          
+         <Link to={`nombre de la ruta/${nombre}`}>{nombre}</Link>  
+
+        </div>
+      </div>
+    </>
+  );
 }
