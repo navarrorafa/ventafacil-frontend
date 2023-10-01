@@ -1,10 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import TablaAnuncios from '../components/TablaAnuncios';
 
 export const TablaUserPage = () => {
   return (
-    <div>TablaUserPage
-          <Outlet/>
+    <div>
+      <TablaAnuncios />
+      <Outlet />
     </div>
-   
+
   )
 }

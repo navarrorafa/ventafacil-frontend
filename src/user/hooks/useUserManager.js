@@ -45,7 +45,7 @@ export const useUserManager = () => {
 
     const deleteUser = async (userId) => {
         // Implemente a lógica de exclusão do usuário aqui
-        const url = `http://localhost:3000/api/v1/users/delete/${userId}`; 
+        const url = `http://localhost:3000/api/v1/users/${userId}`; 
         const response = await dataFetch(url, 'DELETE');
 
         if (response) {
