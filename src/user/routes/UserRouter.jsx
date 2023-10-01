@@ -4,6 +4,7 @@ import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage, MiEspacioP
 import { EditarAnuncioPage } from '../pages/EditarAnuncioPage';
 import { EliminarAnuncioPage } from '../pages/EliminarAnuncioPage';
 import { TodosAnunciosPage } from '../pages/TodosAnunciosPage';
+import { TodosMisAnunciosPage } from '../pages/TodosMisAnunciosPage';
 
 
 export const UserRouter = () => {
@@ -15,6 +16,7 @@ export const UserRouter = () => {
    <>
   <Routes>
   <Route path="articulos" element={<TodosAnunciosPage />} />
+  <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
     <Route path="publicar" element={<PublicarAnuncioPage />} />
 
     <Route path="editar/:id_anuncio" element={<EditarAnuncioPage />} />
