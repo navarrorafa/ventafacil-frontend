@@ -8,11 +8,10 @@ export const BottonLogout = () => {
     const { rolFireBase } = user
 
     return (
-        <div className='navbar-botton'>
-            <p className=''>{`Hola ${rolFireBase}`}</p>
+        <>
 
-            <button className='btn' onClick={()=>{logout(updateUser)}}>Log out</button>
-        </div>
+            <button className='btn text-success bg-transparent border-success' onClick={()=>{logout(updateUser)}}>Log out {rolFireBase}</button>
+        </>
     )
 }
 

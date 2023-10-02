@@ -12,14 +12,15 @@ function App() {
     <>
      <SearchProvider>
     <UserProvider>
-     <header>
+     <header className="p-4 bg-dark text-primary text-end">
       <TypeNav/>
      </header>
-     <main>
+     <main className='text-light text-end container my-5'>
       <AppRouter/>
      </main>
      </UserProvider>
      </SearchProvider>
+     
     </>
   )
 }

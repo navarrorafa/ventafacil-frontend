@@ -6,7 +6,7 @@ import TablaAnuncios from '../components/TablaAnuncios';
 const TablaAnunciosPage = () => {
   return (
     <div>
-      <h1>Anúncios</h1>
+      <h1>Anuncios</h1>
       <TablaAnuncios />
       <Outlet/>
     </div>

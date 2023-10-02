@@ -17,13 +17,15 @@ export const Buscador = ({ route }) => {
   // console.log('tempSearch:', tempSearch);
 
   return (
-    <form onSubmit={handleSearch}>
+    <form className="form-control d-flex bg-transparent" onSubmit={handleSearch}>
       <input
+      className='form-control text-center'
         type="text"
+        placeholder='Encuentra lo que buscas'
         value={tempSearch}
         onChange={(e) => setTempSearch(e.target.value)}
       />
-      <button type="submit">Buscar</button>
+      <button className='text-end btn btn-success m-2' type="submit">Buscar</button>
     </form>
   );
 };
