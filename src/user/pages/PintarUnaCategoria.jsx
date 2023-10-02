@@ -1,30 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, Outlet } from 'react-router-dom';
-import { dataFetch } from '../../helpers/dataFetch';
+
+import { useParams,  } from 'react-router-dom';
+
 import { CardAnuncio } from '../../components/CardAnuncio.Jsx';
 import { useFetch } from '../../hooks/useFetch';
 
 export const PintarUnaCategoria = () => {
     const { nombre } = useParams();
-   const url=`http://localhost:3000/api/v1/ventafacil/ads/categoriaparam/${nombre}`
+    const url = `http://localhost:3000/api/v1/ventafacil/ads/categoriaparam/${nombre}`
 
-   const response = useFetch(url, "GET")
-const {data}=response
-   console.log({data})
+    const response = useFetch(url, "GET")
+    const { data } = response
+    console.log(response)
+    console.log({ data })
+
    
-        
-        return (
-            <section>
-                {
-                    data.map((item) => (
-                        <CardAnuncio
-                            key={item.id_categoria}
-                            {...item}
-                        />
-                    ))
-                }
-            </section>
-        )
+
+    if (!response.ok || !response.data) {
+        return <div> Loading...</div>;
     }
-   
+
+    return (
+
+      
+        <section>
+            
+            {
+
+
+                data.map((item) => (
+                    <CardAnuncio
+                        key={item.id_categoria}
+                        {...item}
+                    />
+                ))
+            }
+        </section>
+    )
+}
+
 

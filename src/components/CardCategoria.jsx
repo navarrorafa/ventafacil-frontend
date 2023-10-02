@@ -10,7 +10,7 @@ export const CardCategoria = ({nombre, descripcion}) => {
       <div>
         <div>
           
-         <Link to={`/anunciosporcat/${nombre}`}> <button type="button">{descripcion}</button></Link>  
+         <Link to={`/anunciosporcat/${nombre}`}>{nombre}</Link>  
 
         </div>
       </div>
