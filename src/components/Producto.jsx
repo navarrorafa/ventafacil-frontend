@@ -36,8 +36,11 @@ export const Producto = ({
             <p>{categoria}</p>
             <p>{fecha_anuncio}</p>
             <p>{zona_geografica}</p>
-            {/* <img src={ruta_foto} alt="" /> */}
-            {/* <a href={enlace_pago}>COMPRAR</a> */}
+            <div>
+                <img src={ruta_foto} alt="" />
+            </div>
+            <a href={enlace_pago}></a>
+           
             
    
 
