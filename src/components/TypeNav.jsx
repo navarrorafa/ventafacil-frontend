@@ -6,54 +6,50 @@ import { UserContext } from "../context/UserContext";
 export const TypeNav = () => {
 
   const { user, updateUser } = useContext(UserContext);
-   const {rolFireBase} = user
+  const { rolFireBase } = user
 
   return (
     <>
-      <div>
-        <div className="navbar-logo">
-          <p>VentaFacil</p>
-        </div>
+      <p className="text-success h1"><strong>v€ntaFácilApp</strong></p>
+      <nav className='navbar navbar-expand-sm navbar-light bg-dark'>
+        <div className="container d-flex ">
+            <ul className='navbar-nav mb-2'>
 
-        <nav className="navbar">
-          <ul className="navbar-links">
+              <li className='nav-item'>
+                <NavLink
+                  to='/'
+                  className={({ isActive }) => `nav-link text-light  ${isActive ? 'active' : ''}`}>
+                  Home
+                </NavLink>
+              </li>
 
-            <li className='nav-item'>
-              <NavLink
-                to='/'
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                Home
-              </NavLink>
-            </li>
-
-            <li className='nav-item'>
-              <NavLink
-                to='/categoria'
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-                Categoria
-              </NavLink>
-            </li>
-            {
-              rolFireBase === 'user' ? (
-                <>
-                  <NavUser />
-                  <BottonLogout />
-                </>
-              ) : rolFireBase === 'admin' ? (
-                <>
-                  <NavAdmin />
-                  <BottonLogout />
-                </>
-              ) : (
-                <>
-                  <NavGuest />
-                </>
-              )
-            }
-          </ul>
-
-        </nav>
-      </div>
+              <li className='nav-item'>
+                <NavLink
+                  to='/categoria'
+                  className={({ isActive }) => `nav-link text-light ${isActive ? 'active' : ''}`}>
+                  Categoria
+                </NavLink>
+              </li>
+              {
+                rolFireBase === 'user' ? (
+                  <>
+                    <NavUser />
+                    <BottonLogout />
+                  </>
+                ) : rolFireBase === 'admin' ? (
+                  <>
+                    <NavAdmin />
+                    <BottonLogout />
+                  </>
+                ) : (
+                  <>
+                    <NavGuest />
+                  </>
+                )
+              }
+            </ul>
+          </div>
+      </nav>
     </>
 
 

@@ -34,13 +34,14 @@ export const LogRegForm = () => {
 
     return (
         <div>
-            <h1>{logeando ? 'Inicio de sesión' : 'Registro '}</h1>
-            <button onClick={() => setLogeando(!logeando)}>
+            <h1 className="text-center text-light"><strong>{logeando ? 'Inicio de sesión' : 'Registro '}</strong></h1>
+            <button className='btn btn-dark m-3' onClick={() => setLogeando(!logeando)}>
                 {logeando ? 'Crear nueva cuenta' : 'Acceder con mi cuenta'}
             </button>
-            <form onSubmit={onSubmit} method='POST'>
-                <label htmlFor="email">Correo electrónico</label>
+            <form className="form-control d-flex bg-transparent" onSubmit={onSubmit} method='POST'>
+                <label htmlFor="email"></label>
                 <input
+                className='form-control'
                     type="email"
                     id="email"
                     name="email"
@@ -49,8 +50,9 @@ export const LogRegForm = () => {
                     onChange={handleChange}
 
                 />
-                <label htmlFor="password">Contraseña</label>
+                <label htmlFor="password"></label>
                 <input
+                className='form-control text-end'
                     type="password"
                     id="password"
                     name="password"
@@ -58,9 +60,9 @@ export const LogRegForm = () => {
                     value={data.password}
                     onChange={handleChange}
                 />
-                <input type="submit" value={logeando ? 'Inicia sesión' : 'Regístrate'} />
+                <input className='text-end btn btn-success m-2' type="submit" value={logeando ? 'Inicia sesión' : 'Regístrate'} />
 
-                {logeando && <Link to='/auth/recover' >Olvidé la contraseña</Link>}
+                {logeando && <Link className='text-danger' to='/auth/recover' >Olvidé la contraseña</Link>}
             </form>
         </div>
     )
