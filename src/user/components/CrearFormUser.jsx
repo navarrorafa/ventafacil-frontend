@@ -9,19 +9,33 @@ import { SelectProvincia } from "../../components/SelectProvincia";
 
 
 export const CrearFormUser = ({ mode }) => {
-
-
     const { user } = useContext(UserContext);
-    const { userData } = useDatosUser()
-
-
 
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
-
+    const { userData} = useDatosUser()
+    
+  
+   
+    
+    
     const { createUser, updateUser } = useUserManager();
+    const initialValues = {
+        uid_Firebase: uidFireBase || (mode === 'update' ? userData.uid_Firebase : ''),
+        nombre: mode === 'update' ? userData.nombre : user.nombre || '',
+        apellidos: mode === 'update' ? userData.apellidos : user.apellidos || '',
+        username: mode === 'update' ? userData.username : user.username || '',
+        email: emailFireBase || '',
+        rol: rolFireBase || '',
+        contacto: mode === 'update' ? userData.contacto : user.contacto || '',
+        provincia: mode === 'update' ? userData.provincia : user.provincia || '',
+        ciudad: mode === 'update' ? userData.ciudad : user.ciudad || '',
+        fecha: mode === 'update' ? userData.fecha : user.fecha || ''
+    };
+    console.log(initialValues)
+    
+    const { handleChange, data} = useForm(initialValues)
 
-    const { handleChange, data } = useForm()
 
     const onSubmit = async (ev) => {
         ev.preventDefault();

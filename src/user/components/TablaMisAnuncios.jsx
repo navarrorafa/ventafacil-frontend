@@ -5,15 +5,21 @@ import { dataFetch } from '../../helpers/dataFetch';
 import { UserProvider } from '../../context/UserProvider';
 import { UserContext } from '../../context/UserContext';
 
-export const TablaMisAnuncios = () => {
+export const TablaMisAnuncios = ({id}) => {
+    console.log('ID recebido:', id); 
     const [anuncios, setAnuncios] = useState([]);
 const {user}=useContext(UserContext)
-const {uidFireBase} = user
+const {uidFireBase,rolFireBase} = user
+console.log(user)
+console.log(rolFireBase)
+const uid = rolFireBase === 'admin' ? id: uidFireBase;
+
+
 console.log(user)
     useEffect(() => {
         const fetchAnuncios = async () => {
             try {
-                const res = await dataFetch(`http://localhost:3000/api/v1/ventafacil/ads/buscaridusuario/${uidFireBase}`, 'GET');
+                const res = await dataFetch(`http://localhost:3000/api/v1/ventafacil/ads/buscaridusuario/${uid}`, 'GET');
                 const { data } = res;
                 if (data && Array.isArray(data)) {
                   setAnuncios(data);
@@ -26,7 +32,7 @@ console.log(user)
         };
         
         fetchAnuncios();
-    }, []);
+    }, [uid]);
     
 
     return (
