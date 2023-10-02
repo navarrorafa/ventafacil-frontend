@@ -17,7 +17,7 @@ export const AppRouter = () => {
 
    return (
 
-      <Routes>
+        <Routes>
 
          <Route path="/" element={<HomePage />}/>
          <Route path="producto/:id" element={<CardAnuncioPage />} />
@@ -38,7 +38,7 @@ export const AppRouter = () => {
             )
          }
 
-         <Route path='/*' element={<Navigate to='/' />} />
+       <Route path='/*' element={<Navigate to='/' />} />
 
       </Routes>
 

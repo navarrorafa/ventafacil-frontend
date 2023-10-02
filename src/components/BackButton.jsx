@@ -9,6 +9,6 @@ export const BackButton = () => {
     };
 
     return (
-        <button className='btn btn-dark' onClick={handleGoBack}>Volver</button>
+        <button className='btn btn-primary m-2' onClick={handleGoBack}>Volver</button>
     );
 }

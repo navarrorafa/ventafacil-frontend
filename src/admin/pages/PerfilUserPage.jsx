@@ -39,21 +39,21 @@ const PerfilUserPage = () => {
 
     <section className="p-4">
 
-      <button onClick={handleEliminar} className="mt-4 bg-red-500 text-white py-2 px-4 rounded">
+      <button onClick={handleEliminar} className=" text-dark m-2">
         Eliminar
       </button>
-      <h1 className="text-xl font-bold">Perfil de {usuario.username}</h1>
-      <p><strong>UID Firebase:</strong> {usuario.uid_firebase}</p>
-      <p><strong>Nome:</strong> {usuario.nombre}</p>
-      <p><strong>Sobrenomes:</strong> {usuario.apellidos}</p>
-      <p><strong>Nome de Usuário:</strong> {usuario.username}</p>
-      <p><strong>Email:</strong> {usuario.email}</p>
-      <p><strong>Contato:</strong> {usuario.contacto}</p>
-      <p><strong>Data de Criação:</strong> {usuario.fecha}</p>
-      <p><strong>Cidade:</strong> {usuario.ciudad}</p>
-      <p><strong>Província:</strong> {usuario.provincia}</p>
-      <p><strong>Rol:</strong> {usuario.rol}</p>
-      <p><strong>ID:</strong> {usuario.id}</p>
+      <h1 className="text-dark font-bold">Perfil de {usuario.username}</h1>
+      <p className="text-dark font-bold"><strong>UID Firebase:</strong> {usuario.uid_firebase}</p>
+      <p className="text-dark font-bold"><strong>Nome:</strong> {usuario.nombre}</p>
+      <p className="text-dark font-bold"><strong>Sobrenomes:</strong> {usuario.apellidos}</p>
+      <p className="text-dark font-bold"><strong>Nome de Usuário:</strong> {usuario.username}</p>
+      <p className="text-dark font-bold"><strong>Email:</strong> {usuario.email}</p>
+      <p className="text-dark font-bold"><strong>Contato:</strong> {usuario.contacto}</p>
+      <p className="text-dark font-bold"><strong>Data de Criação:</strong> {usuario.fecha}</p>
+      <p className="text-dark font-bold"><strong>Cidade:</strong> {usuario.ciudad}</p>
+      <p className="text-dark font-bold"><strong>Província:</strong> {usuario.provincia}</p>
+      <p className="text-dark font-bold"><strong>Rol:</strong> {usuario.rol}</p>
+      <p className="text-dark font-bold"><strong>ID:</strong> {usuario.id}</p>
 
       
       <div>
