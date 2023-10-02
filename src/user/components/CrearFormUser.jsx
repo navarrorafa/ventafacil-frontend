@@ -13,11 +13,8 @@ export const CrearFormUser = ({ mode }) => {
 
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
-    const { userData} = useDatosUser()
-    
-  
-   
-    
+    const { userData} = useDatosUser(initialValues)
+    console.log(user)
     
     const { createUser, updateUser } = useUserManager();
     const initialValues = {
