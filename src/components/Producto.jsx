@@ -45,9 +45,6 @@ export const Producto = ({
                 </article>
                 <BackButton />
             </section>
-
-
-
             <div>
 
                 {showEditButton && (
