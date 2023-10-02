@@ -35,12 +35,15 @@ export const EditarForm = () => {
 
   return (
     <>
-      <pre>{JSON.stringify(data)}</pre>
-      <form encType='multipart/form-data' onSubmit={onSubmit} method="PUT">
-        <input type="text" onChange={handleChange} defaultValue={adData.producto} placeholder="Producto" name='producto' />
-        <textarea name="descripcion" onChange={handleChange} defaultValue={adData.descripcion} id="descripcion" cols="30" rows="10"></textarea>
-        <input type="text" onChange={handleChange} defaultValue={adData.precio} placeholder="Precio" name='precio' />
-        <select name='categoria' defaultValue={adData.categoria} onChange={handleChange} >
+<h1 className="text-center text-light">Editar mi Anuncio</h1>
+
+    
+      <form className="form-control bg-transparent" encType='multipart/form-data' onSubmit={onSubmit} method="PUT">
+        <input className='form-control mb-2' type="text" onChange={handleChange} defaultValue={adData.producto} placeholder="Producto" name='producto' />
+        <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} defaultValue={adData.descripcion} id="descripcion" cols="20" rows="10"></textarea>
+        <input className='form-control mb-2' type="text" onChange={handleChange} defaultValue={adData.precio} placeholder="Precio" name='precio' />
+        <select className='form-control mb-2' name='categoria' defaultValue={adData.categoria} onChange={handleChange} >
+        <option value="" disabled>Elige una categoría</option>
           <option value="electronica">electronica</option>
           <option value=" ropaAccesorios">Ropa y accesorios</option>
           <option value=" hogarJardin"> Hoga y jardín</option>
@@ -50,10 +53,9 @@ export const EditarForm = () => {
           <option value=" alimentosBebidas"> Alimentación</option>
           <option value=" librosMusica"> Libros y música</option>
         </select>
-        <select name="zona_geografica" defaultValue={adData.zona_geografica} onChange={handleChange}>
-          <option value="">-------</option>
+        <select className='form-control mb-2' name="zona_geografica" defaultValue={adData.zona_geografica} onChange={handleChange}>
+        <option value="" disabled>Elige una provincia</option>
           <option value="alava">Alava</option>
-          <option value="albacete">Albacete</option>
           <option value="albacete">Albacete</option>
           <option value="alicante">Alicante</option>
           <option value="almeria">Almería</option>
@@ -104,13 +106,13 @@ export const EditarForm = () => {
           <option value="zamora">Zamora</option>
           <option value="zaragoza">Zaragoza</option>
         </select>
-        <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
+        <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
         
         <input  type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={adData.id_vendedor} />
         
         <input  type="text" hidden name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
 
-        <input type="submit" />
+        <input className='btn btn-success m-2' type="submit" />
       </form>
     </>
   );
