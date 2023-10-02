@@ -19,7 +19,7 @@ export const CategoriaUnicaPage = () => {
 
   return (
     <>
-      <h1 className='text-center text-light'>Categoría </h1>
+      <h1 className='text-center text-dark'>Categoría </h1>
       <section>
         {
           data.map((item) => (

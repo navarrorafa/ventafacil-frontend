@@ -17,7 +17,7 @@ export const Buscador = ({ route }) => {
   // console.log('tempSearch:', tempSearch);
 
   return (
-    <form className="form-control d-flex bg-transparent" onSubmit={handleSearch}>
+    <form className="form-control d-flex bg-dark" onSubmit={handleSearch}>
       <input
       className='form-control text-center'
         type="text"
