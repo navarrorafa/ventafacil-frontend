@@ -45,7 +45,7 @@ const navigate = useNavigate()
           <option value="librosMusica"> Libros y música</option>
         </select>
         <select className='form-control mb-2' name="zona_geografica" value={data.Zona_Geografica} onChange={handleChange}>
-        <option value="" disabled>Elige una provincia</option>
+          <option value="" disabled>Elige una provincia</option>
           <option value="alava">Alava</option>
           <option value="albacete">Albacete</option>
           <option value="alicante">Alicante</option>
@@ -98,8 +98,8 @@ const navigate = useNavigate()
           <option value="zaragoza">Zaragoza</option>
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-
-        <input type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <label for="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
+        <input type="checkbox" name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
         <input hidden type="text" name="nombreVendedor" />
         <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
       </form>

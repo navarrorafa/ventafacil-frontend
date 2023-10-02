@@ -31,33 +31,35 @@ export const Producto = ({
 
     return (
         <>
+
             <section className='bg-dark m-2'>
                 <h2 className='card-title text-dark text end'>{producto} - {precio}€</h2>
+
                 <article>
                     <div>
                         <img src={ruta_foto} alt={producto} />
                     </div>
-                    <div className="card-body">
-                        <p className='card-subtitle'>{zona_geografica} - {fecha_anuncio}</p>
-                        <p>{descripcion}</p>
+                    <div className="card-body m-2">
+                        <p className='card-subtitle m-2'>{zona_geografica} - {fecha_anuncio}</p>
+                        <p className='m-2'>{descripcion}</p>
                     </div>
-                    <a className='btn btn-success' href={enlace_pago}>Comprar</a>
+                    <a className='btn btn-success m-2' href={enlace_pago}>Comprar</a>
                 </article>
                 <BackButton />
             </section>
             <div>
 
                 {showEditButton && (
-                    <Link className='btn btn-dark' to={`/user/editar/${id_anuncio}`}>Editar</Link>
+                    <Link className='btn btn-dark m-2' to={`/user/editar/${id_anuncio}`}>Editar</Link>
                 )}
 
 
                 {showBuyButton && (
-                    <Link className='btn btn-success'to={{ state: { enlace_pago: true } }}>Comprar</Link>
+                    <Link className='btn btn-success m-2'to={{ state: { enlace_pago: true } }}>Comprar</Link>
                 )}
 
                 {showRegisterLink && (
-                    <Link className='btn btn-dark' to="/auth/login">Registro</Link>
+                    <Link className='btn btn-dark m-2' to="/auth/login">Registro</Link>
                 )}
             </div>
         </>
