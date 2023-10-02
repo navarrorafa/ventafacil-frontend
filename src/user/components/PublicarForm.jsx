@@ -34,7 +34,7 @@ const navigate = useNavigate()
         <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
         <select className='form-control mb-2' name='categoria' value={data.Categoria} onChange={handleChange} >
-          <option value="" disabled>Elige una categoría</option>
+          <option defaultValue='' selected disabled>Elige una categoría</option>
           <option value="electronica">electronica</option>
           <option value="ropaAccesorios">Ropa y accesorios</option>
           <option value="hogarJardin"> Hoga y jardín</option>
@@ -45,7 +45,7 @@ const navigate = useNavigate()
           <option value="librosMusica"> Libros y música</option>
         </select>
         <select className='form-control mb-2' name="zona_geografica" value={data.Zona_Geografica} onChange={handleChange}>
-          <option value="" disabled>Elige una provincia</option>
+          <option value="" selected disabled>Elige una provincia</option>
           <option value="alava">Alava</option>
           <option value="albacete">Albacete</option>
           <option value="alicante">Alicante</option>
@@ -98,9 +98,9 @@ const navigate = useNavigate()
           <option value="zaragoza">Zaragoza</option>
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        <label for="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
-        <input type="checkbox" name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
-        <input hidden type="text" name="nombreVendedor" />
+        <label htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
+        <input type="checkbox" name="id_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input hidden type="text" name="nombre_vendedor" />
         <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
       </form>
     </>
