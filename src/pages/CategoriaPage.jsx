@@ -1,7 +1,41 @@
+import { CardCategoria } from "../components/CardCategoria";
+// import { dataFetch } from "../helpers/dataFetch";
+import { useFetch } from "../hooks/useFetch";
+// import { useResultado } from "../hooks/useResultado";
+// import { useDatosCats } from "../user/hooks/useDatosCats";
 
 
-export const CategoriaPage = () => {
+export const CategoriaPage =  () => {
+
+  const url = "http://localhost:3000/api/v1/ventafacil/categories";
+  const method = 'GET';
+  const response =  useFetch(url, method);
+
+
+
+  if (!response.ok || !response.data) {
+    return <div>Error or Loading...</div>;
+}
+
+const {data} = response ;
+console.log({data} )
+ 
+
   return (
-    <div>CategoriaPage</div>
-  )
+    <>
+
+      <section>
+        {
+          data.map((item) => (
+            <CardCategoria
+              key={item.id_categoria}
+              {...item}
+            />
+          ))
+        }
+      </section>
+    </>
+  );
+
+
 }

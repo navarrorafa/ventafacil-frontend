@@ -1,12 +1,17 @@
+import { useContext } from "react"
+import { UserContext } from "../context/UserContext"
+import { logout } from "../auth/helpers"
 
 
 export const BottonLogout = () => {
-    return (
-        <div className='navbar-botton'>
-            <p className=''>Hola Fulano</p>
+    const { updateUser, user } = useContext(UserContext)
+    const { rolFireBase } = user
 
-            <button className='btn' onClick={() => { }}>Log out</button>
-        </div>
+    return (
+        <>
+
+            <button className='btn text-success bg-dark border-success' onClick={()=>{logout(updateUser)}}>Log out {rolFireBase}</button>
+        </>
     )
 }
 

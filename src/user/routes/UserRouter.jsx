@@ -1,37 +1,32 @@
-import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { CardAnuncioPage } from "../../pages"
-import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage, MiEspacioPage, PublicarAnuncioPage } from "../pages"
-
+import { Routes, Route } from 'react-router-dom';
+import { EditarPerfilPage, HistorialComprasPage, HistorialVentasPage, MiEspacioPage, PublicarAnuncioPage, RegisterPage, TodosMisAnunciosPage, EditarAnuncioPage, EliminarAnuncioPage, TodosAnunciosPage } from "../pages"
+import { PintarUnaCategoria } from '../pages/PintarUnaCategoria';
 
 export const UserRouter = () => {
-    return (
+  return (
 
-   
+    <>
+      <Routes>
+     
+        <Route path="articulos" element={<TodosAnunciosPage />} />
+        <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
+        <Route path="publicar" element={<PublicarAnuncioPage />} />
+        <Route path="editar/:id" element={<EditarAnuncioPage />} />
 
-  
-   <>
-  <Routes>
-    <Route path="publicar" element={<PublicarAnuncioPage />} />
+        <Route path="eliminar/:id_anuncio" element={<EliminarAnuncioPage />} />
+        <Route path="myhome" element={<MiEspacioPage />}>
+          <Route path="update/:id" element={<EditarPerfilPage />} />
 
-    <Route path="myhome" element={<MiEspacioPage />}>
-      <Route path="update/:id" element={<EditarPerfilPage />} />
-      <Route path="sales" element={<HistorialVentasPage />}>
-        <Route path="producto/:id" element={<CardAnuncioPage />} />
-      </Route>
-      <Route path="buy" element={<HistorialComprasPage />}>
-        <Route path="producto/:id" element={<CardAnuncioPage />} />
-      </Route>
-    </Route>
-    </Routes>
+          <Route path="sales" element={<HistorialVentasPage />}>
+
+          </Route>
+
+          <Route path="buy" element={<HistorialComprasPage />}>
+
+          </Route>
+        </Route>
+      </Routes>
     </>
 
- 
-
-
-
-
-     
-
-
-    )
-}
+  );
+};
