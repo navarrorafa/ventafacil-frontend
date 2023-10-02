@@ -1,18 +1,20 @@
 
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { PerfilAnuncioPage, PerfilUserPage, TablaAnunciosPage, TablaUserPage } from '../pages';
+import { PerfilAnuncioPage, TablaUserPage } from '../pages';
+import TablaAnunciosPage from '../pages/TablaAnunciosPage';
+import PerfilUserPage from '../pages/PerfilUserPage';
+
 
 
 export const AdminRouter = () => {
     return (
         <>
             <Routes>
-                <Route path="anuncios" element={<TablaAnunciosPage />}>
-                    <Route path=":id" element={<PerfilAnuncioPage />} />
-                </Route>
-                <Route path="user" element={<TablaUserPage />}>
-                    <Route path=":id" element={<PerfilUserPage />} />
-                </Route>
+                <Route path="anuncios" element={<TablaAnunciosPage />}/>
+                   
+                <Route path="user" element={<TablaUserPage/>}/> 
+                <Route path="user/:id" element={<PerfilUserPage/>} />
+               
             </Routes>
 
 

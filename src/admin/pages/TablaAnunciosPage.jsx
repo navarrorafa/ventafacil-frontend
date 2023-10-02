@@ -1,10 +1,16 @@
 import { Outlet } from 'react-router-dom';
+import React from 'react';
+import TablaAnuncios from '../components/TablaAnuncios';
 
-export const TablaAnunciosPage = () => {
+
+const TablaAnunciosPage = () => {
   return (
     <div>
-      <p>TablaAnunciosPage</p>
-    <Outlet/>
+      <TablaAnuncios />
+      <Outlet/>
     </div>
-  )
-}
+  );
+};
+
+export default TablaAnunciosPage;
+

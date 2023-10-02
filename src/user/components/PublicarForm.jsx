@@ -1,54 +1,52 @@
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from "../../hooks/useForm";
 import { dataFetch } from '../../helpers/dataFetch';
-
-
-
-
+import { UserProvider } from '../../context/UserProvider';
+import { UserContext } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 export const PublicarForm = ({ mode }) => {
+  const { user } = useContext(UserContext)
+  const { uidFireBase } = user
+const navigate = useNavigate()
   const url = "http://localhost:3000/api/v1/ventafacil/ads/anunciar"
-  const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
-
+  const { handleChange, handleFileChange, data, file } = useForm()
   const onSubmit = (ev) => {
-
-  ev.preventDefault()
-   const newAd = data
-  createad(newAd)
-
-   }
-
+    ev.preventDefault()
+    const newAd = data
+    createad(newAd)
+    navigate('/user/myhome')
+  }
   const createad = async (newAd) => {
-    const completeAd={...newAd, 
-      imagen_anuncio: file.name}
-      console.log("ANUNCIO COMPLETO", completeAd)
+    const completeAd = {
+      ...newAd,
+      imagen_anuncio: file.name
+    }
+    console.log("ANUNCIO COMPLETO", completeAd)
     const dataAnuncio = await dataFetch(url, "POST", completeAd)
     console.log(dataAnuncio)
   }
-
- 
-
-
   return (
     <>
-      <pre>{JSON.stringify(data)}</pre>
-      <form encType='multipart/form-data' onSubmit={onSubmit} method="POST">
-        <input type="text" onChange={handleChange} value={data.Producto} placeholder="Producto" name='producto' />
-        <textarea name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
-        <input type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
-        <select name='categoria' value={data.Categoria} onChange={handleChange} >
+      <h1 className="text-center text-dark">Publicar un Artículo</h1>
+
+      <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
+        <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Producto} placeholder="Producto" name='producto' />
+        <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
+        <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
+        <select className='form-control mb-2' name='categoria' value={data.Categoria} onChange={handleChange} >
+          <option defaultValue='' selected disabled>Elige una categoría</option>
           <option value="electronica">electronica</option>
-          <option value=" ropaAccesorios">Ropa y accesorios</option>
-          <option value=" hogarJardin"> Hoga y jardín</option>
-          <option value=" deportesAireLibre"> Deportes y aire libre</option>
-          <option value=" saludBelleza"> Salud y belleza</option>
-          <option value=" juguetesJuegos"> Juguetes y juegos</option>
-          <option value=" alimentosBebidas"> Alimentación</option>
-          <option value=" librosMusica"> Libros y música</option>
+          <option value="ropaAccesorios">Ropa y accesorios</option>
+          <option value="hogarJardin"> Hoga y jardín</option>
+          <option value="deportesAireLibre"> Deportes y aire libre</option>
+          <option value="saludBelleza"> Salud y belleza</option>
+          <option value="juguetesJuegos"> Juguetes y juegos</option>
+          <option value="alimentosBebidas"> Alimentación</option>
+          <option value="librosMusica"> Libros y música</option>
         </select>
-        <select name="zona_geografica" value={data.Zona_Geografica} onChange={handleChange}>
-          <option value="">-------</option>
+        <select className='form-control mb-2' name="zona_geografica" value={data.Zona_Geografica} onChange={handleChange}>
+          <option value="" selected disabled>Elige una provincia</option>
           <option value="alava">Alava</option>
-          <option value="albacete">Albacete</option>
           <option value="albacete">Albacete</option>
           <option value="alicante">Alicante</option>
           <option value="almeria">Almería</option>
@@ -99,11 +97,11 @@ export const PublicarForm = ({ mode }) => {
           <option value="zamora">Zamora</option>
           <option value="zaragoza">Zaragoza</option>
         </select>
-        <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        <input hidden type="text" name="idVendedor" />
-        <input hidden type="text" name="nombreVendedor" />
-
-        <input type="submit" />
+        <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
+        <label htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
+        <input type="checkbox" name="id_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input hidden type="text" name="nombre_vendedor" />
+        <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
       </form>
     </>
   );
