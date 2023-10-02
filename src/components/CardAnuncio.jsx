@@ -2,26 +2,31 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-export const CardAnuncio = ({ ruta_foto, categoria, producto, precio,id_anuncio }) => {
+export const CardAnuncio = ({ ruta_foto, categoria, producto, precio, id_anuncio }) => {
 
-    const [hasError, setHasError] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
-    const handleError = () => {
-        setHasError(true);
-    }
+  const handleError = () => {
+    setHasError(true);
+  }
 
-    return (
-        <>
-          <div>
-            <div>
-                <img src="" alt="" />
-                <p>{categoria}</p>
-                <p>{producto}</p>
-                <p>{precio}</p>
-                <Link to={`/producto/${id_anuncio}`}>Ver mas </Link>
-               
+  return (
+    <>
+      <h1 className='text-start text-light'>Anuncios</h1>
+      <article className="bg-light card mb-2">
+        <div className="row">
+          <div className="col-md-4">
+            <img className="card-img-top img-fluid mb-2" src={ruta_foto} alt={producto} />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h2 className="card-title text-dark">{producto} - {precio}€</h2>
+              <p className="card-subtitle">{categoria}</p>
+              <Link className='btn btn-dark' to={`/producto/${id_anuncio}`}>Detalles</Link>
             </div>
           </div>
-        </>
-    );
+        </div>
+      </article>
+    </>
+  );
 }

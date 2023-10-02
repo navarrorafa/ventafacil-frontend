@@ -37,28 +37,28 @@ console.log(user)
 
     return (
         <>
-            <div className="overflow-x-auto md:overflow-hidden">
-                <table className="min-w-full bg-white">
-                    <thead className="bg-gray-800 text-white">
+    <h1 className='text-center text-light'>Mis articulos a la venta</h1>
+                <table className="table table-dark table-hover">
+                    <thead className="bg-gray text-white">
                         <tr>
-                            <th className="py-2 px-4 text-left">ID Anuncio</th>
-                            <th className="py-2 px-4 text-left">Producto</th>
-                            <th className="py-2 px-4 text-left">ID Vendedor</th>
-                            <th className="py-2 px-4 text-left">ID Comprador</th>
-                            <th className="py-2 px-4 text-left">Fecha Anuncio</th>
-                            <th className="py-2 px-4 text-left">Acción</th>
+                            <th className="col">ID Anuncio</th>
+                            <th className="col">Producto</th>
+                            <th className="col">ID Vendedor</th>
+                            <th className="col">ID Comprador</th>
+                            <th className="col">Fecha Anuncio</th>
+                            <th className="col">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
                         {anuncios.map((anuncio, index) => (
-                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
-                                <td className="py-2 px-4">{anuncio.id_anuncio}</td>
-                                <td className="py-2 px-4">{anuncio.producto}</td>
-                                <td className="py-2 px-4">{anuncio.id_vendedor}</td>
-                                <td className="py-2 px-4">{anuncio.id_comprador}</td>
-                                <td className="py-2 px-4">{anuncio.fecha_anuncio}</td>
-                                <td className="py-2 px-4">
-                                    <Link to={`/user/editar/${anuncio.id_anuncio}`} className="text-blue-500 hover:underline">
+                            <tr key={index} className={`${index % 2 === 0 ? 'bg-gray' : 'bg-white'}`}>
+                                <td >{anuncio.id_anuncio}</td>
+                                <td >{anuncio.producto}</td>
+                                <td >{anuncio.id_vendedor}</td>
+                                <td >{anuncio.id_comprador}</td>
+                                <td >{anuncio.fecha_anuncio}</td>
+                                <td >
+                                    <Link className='btn btn-dark' to={`/user/editar/${anuncio.id_anuncio}`} >
                                         Editar
                                     </Link>
                                 </td>
@@ -66,7 +66,7 @@ console.log(user)
                         ))}
                     </tbody>
                 </table>
-            </div>
+           
             <Outlet />
         </>
     );
