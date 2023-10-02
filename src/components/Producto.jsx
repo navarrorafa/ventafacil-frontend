@@ -41,7 +41,7 @@ export const Producto = ({
                         <p className='card-subtitle'>{zona_geografica} - {fecha_anuncio}</p>
                         <p>{descripcion}</p>
                     </div>
-                    <a className='btn btn-primary' href={enlace_pago}></a>
+                    <a className='btn btn-primary' href={enlace_pago}>Comprar</a>
                 </article>
                 <BackButton />
             </section>

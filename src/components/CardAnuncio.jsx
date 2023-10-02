@@ -12,8 +12,8 @@ export const CardAnuncio = ({ ruta_foto, categoria, producto, precio, id_anuncio
 
   return (
     <>
-      <h1 className='text-start text-light'>Anuncios</h1>
-      <article className="bg-light card mb-2">
+      
+      <article className="bg-dark card mb-2">
         <div className="row">
           <div className="col-md-4">
             <img className="card-img-top img-fluid mb-2" src={ruta_foto} alt={producto} />

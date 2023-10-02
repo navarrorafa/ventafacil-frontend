@@ -1,6 +1,6 @@
 import { Link, NavLink, Outlet } from 'react-router-dom';
 
-export const CardCategoria = ({nombre, descripcion}) => {
+export const CardCategoria = ({ nombre, descripcion }) => {
 
 
 
@@ -9,8 +9,8 @@ export const CardCategoria = ({nombre, descripcion}) => {
     <>
       <div>
         <div>
-          
-         <Link to={`/anunciosporcat/${nombre}`}>{nombre}</Link>  
+
+          <Link className='btn btn-lg btn-dark' to={`/anunciosporcat/${nombre}`}>{nombre}</Link>
 
         </div>
       </div>

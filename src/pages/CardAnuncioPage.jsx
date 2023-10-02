@@ -19,7 +19,7 @@ const CardAnuncioPage = () => {
 
     return (
         <div>
-        
+        <h1 className='text-start text-light'>Anuncios</h1>
             <Producto
                 {...anuncio}
             />
