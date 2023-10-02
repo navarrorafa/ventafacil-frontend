@@ -32,7 +32,7 @@ export const Producto = ({
     return (
         <>
             <section className='bg-dark m-2'>
-                <h1 className='card-title text-dark text end'>{producto} - {precio}€</h1>
+                <h2 className='card-title text-dark text end'>{producto} - {precio}€</h2>
                 <article>
                     <div>
                         <img src={ruta_foto} alt={producto} />

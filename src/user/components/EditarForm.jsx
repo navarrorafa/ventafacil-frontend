@@ -35,10 +35,10 @@ export const EditarForm = () => {
 
   return (
     <>
-<h1 className="text-center text-light">Editar mi Anuncio</h1>
+<h1 className="text-center text-dark">Editar mi Anuncio</h1>
 
     
-      <form className="form-control bg-transparent" encType='multipart/form-data' onSubmit={onSubmit} method="PUT">
+      <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="PUT">
         <input className='form-control mb-2' type="text" onChange={handleChange} defaultValue={adData.producto} placeholder="Producto" name='producto' />
         <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} defaultValue={adData.descripcion} id="descripcion" cols="20" rows="10"></textarea>
         <input className='form-control mb-2' type="text" onChange={handleChange} defaultValue={adData.precio} placeholder="Precio" name='precio' />
@@ -112,7 +112,7 @@ export const EditarForm = () => {
         
         <input  type="text" hidden name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
 
-        <input className='btn btn-success m-2' type="submit" />
+        <input className='btn btn-success m-2' type="submit" value='Editar' />
       </form>
     </>
   );

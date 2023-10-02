@@ -10,7 +10,7 @@ export const BottonLogout = () => {
     return (
         <>
 
-            <button className='btn text-success bg-transparent border-success' onClick={()=>{logout(updateUser)}}>Log out {rolFireBase}</button>
+            <button className='btn text-success bg-dark border-success' onClick={()=>{logout(updateUser)}}>Log out {rolFireBase}</button>
         </>
     )
 }

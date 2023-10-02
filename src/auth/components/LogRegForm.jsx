@@ -36,11 +36,11 @@ export const LogRegForm = () => {
 
     return (
         <div>
-            <h1 className="text-center text-light"><strong>{logeando ? 'Inicio de sesión' : 'Registro '}</strong></h1>
+            <h1 className="text-center text-dark"><strong>{logeando ? 'Inicio de sesión' : 'Registro '}</strong></h1>
             <button className='btn btn-dark m-3' onClick={() => setLogeando(!logeando)}>
                 {logeando ? 'Crear nueva cuenta' : 'Acceder con mi cuenta'}
             </button>
-            <form className="form-control d-flex bg-transparent" onSubmit={onSubmit} method='POST'>
+            <form className="form-control d-flex bg-dark" onSubmit={onSubmit} method='POST'>
                 <label htmlFor="email"></label>
                 <input
                 className='form-control'

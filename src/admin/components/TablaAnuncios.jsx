@@ -28,7 +28,7 @@ const TablaAnuncios = () => {
 
     return (
         <>
-        <h1 className='text-center text-light'>Anuncios</h1>
+        <h1 className='text-center text-dark'>Anuncios</h1>
             
         <table className="table table-dark table-hover">
                     <thead className="bg-gray text-white">

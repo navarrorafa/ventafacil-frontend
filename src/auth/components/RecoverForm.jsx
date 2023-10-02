@@ -25,7 +25,7 @@ export const RecoverForm = () => {
     return (
         <div>
             <h1 className="text-center text-light">Recuperacion de contraseña</h1>
-            <form className="form-control d-flex bg-transparent" onSubmit={onSubmit} method='POST'>
+            <form className="form-control d-flex bg-dark" onSubmit={onSubmit} method='POST'>
 
                 <label htmlFor="email"></label>
                 <input
