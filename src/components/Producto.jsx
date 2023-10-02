@@ -44,16 +44,16 @@ export const Producto = ({
             <div>
              
                 {showEditButton && (
-                    <NavLink to="/editar">Editar</NavLink>  
+                    <Link to={`/user/editar/${id_anuncio}`}>Editar</Link>  
                 )}
 
                
                 {showBuyButton && (
-                    <Link to={{ pathname: "/comprar", state: { enlace_pago: true } }}>Comprar</Link>  
+                    <Link to={{  state: { enlace_pago: true } }}>Comprar</Link>  
                 )}
 
                 {showRegisterLink && (
-                    <Link to="/registro">Registro</Link> 
+                    <Link to="/auth/login">Registro</Link> 
                 )}
             </div>
         </>
