@@ -12,7 +12,7 @@ export const MiEspacioPage = () => {
   <>
   <div>
 
-  <Link to={`/user/myhome/update/${uidFireBase}`}>Editar Perfil</Link>
+  <Link className='btn btn-dark m-3' to={`/user/myhome/update/${uidFireBase}`}><strong>Editar Perfil</strong></Link>
     
   
     <Outlet />

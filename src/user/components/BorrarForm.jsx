@@ -29,12 +29,13 @@ export const BorrarForm = () => {
       
         return (
           <>
+          <h1 className="text-center text-light">Borrar Anuncio</h1>
             <p>¿SEGURO QUE QUIERES ELIMINAR EL ANUNCIO PARA <strong>{adData.producto}</strong>?</p>
-            <form encType='multipart/form-data' onSubmit={onSubmit} method="DELETE">
+            <form className="form-control bg-transparent p-2" encType='multipart/form-data' onSubmit={onSubmit} method="DELETE">
               
       
-              <input type="submit" value={"ELIMINAR ANUNCIO"} />
-              <button>NO, VOLVER ATRÁS</button>
+              <input className='btn btn-danger m-2' type="submit" value={"ELIMINAR ANUNCIO"} />
+              <button className='btn btn-dark m-2'>NO, VOLVER ATRÁS</button>
             </form>
           </>
         );

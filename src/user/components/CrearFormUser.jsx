@@ -10,6 +10,7 @@ import { SelectProvincia } from "../../components/SelectProvincia";
 
 export const CrearFormUser = ({ mode }) => {
     const { user } = useContext(UserContext);
+
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
     const { userData} = useDatosUser()
@@ -35,6 +36,7 @@ export const CrearFormUser = ({ mode }) => {
     
     const { handleChange, data} = useForm(initialValues)
 
+
     const onSubmit = async (ev) => {
         ev.preventDefault();
         const newUser = data;
@@ -44,7 +46,7 @@ export const CrearFormUser = ({ mode }) => {
             : 'http://localhost:3000/api/v1/users/create';
 
         if (mode === 'update') {
-           await  updateUser(newUser, url);
+            await updateUser(newUser, url);
         } else {
             await createUser(newUser, url);
         }
@@ -57,127 +59,115 @@ export const CrearFormUser = ({ mode }) => {
 
 
 
+            <h1 className="text-center text-light">Mi Perfil</h1>
 
-           
-            <form onSubmit={onSubmit} className="bg-white p-6 rounded shadow-md">
-                <div className="mb-4">
-
-                    <input
-                        type="text"
-                        placeholder="uid_Firebase"
-                        id="uid_Firebase"
-                        name="uid_Firebase"
-                        value={uidFireBase || (mode === 'update' ? (userData.uid_Firebase || '') : uidFireBase)}
-                        onChange={handleChange}
-                        hidden
-                    />
-
-                    <label htmlFor="nombre" className="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
-                    <input
-                        type="text"
-                        placeholder="Nombre"
-                        id="nombre"
-                        name="nombre"
-                        defaultValue={mode === 'update' ? (userData.nombre || '') : (data.nombre || '')}
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    />
-
-                    <label htmlFor="apellidos" className="block text-gray-700 text-sm font-bold mb-2">Apellidos:</label>
-                    <input
-                        type="text"
-                        placeholder="Apellidos"
-                        id="apellidos"
-                        name="apellidos"
-                        defaultValue={mode === 'update' ? (userData.apellidos || '') : (data.apellidos || '')}
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    />
-
-                    <label htmlFor="username" className="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        id="username"
-                        name="username"
-                        defaultValue={mode === 'update' ? (userData.username || '') : (data.username || '')}
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        disabled={mode === 'update'}
-                    />
-                    
-                    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-                    <input
-                        type="text"
-                        placeholder="Email"
-                        id="email"
-                        name="email"
-                        defaultValue={emailFireBase || ""} 
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        disabled={mode === 'update'}
-                    />
-
-                    <input
-                        type="text"
-                        placeholder="rol"
-                        id="rol"
-                        name="rol"
-                        defaultValue={rolFireBase || ""} 
-                        onChange={handleChange}
-                        hidden
-                    />
+            <form className="form-control bg-transparent p-2" onSubmit={onSubmit}>
 
 
-                    <label htmlFor="contacto" className="block text-gray-700 text-sm font-bold mb-2">Contacto:</label>
-                    <input
-                        type="tel"
-                        placeholder="Contacto"
-                        id="contacto"
-                        name="contacto"
-                        defaultValue={mode === 'update' ? (userData.contacto || '') : (data.contacto || '')}
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    />
-                    <SelectProvincia defaultValue={mode === 'update' ? (userData.provincia || '') : (data.provincia || '')} handleChange={handleChange} />
-
-                    <label htmlFor="ciudad" className="block text-gray-700 text-sm font-bold mb-2">Ciudad:</label>
-                    <input
-                        type="text"
-                        placeholder="Ciudad"
-                        id="ciudad"
-                        name="ciudad"
-                        defaultValue={mode === 'update' ? (userData.ciudad || '') : (data.ciudad || '')}
-                        onChange={handleChange}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    />
-
-                    <input
-                        type="text"
-                        placeholder="Fecha"
-                        id="fecha"
-                        name="fecha"
-                        defaultValue={mode === 'update' ? (userData.fecha || '') : (data.fecha || '')}
-                        onChange={handleChange}
-                        hidden />
-
-
-
-
-
-
-
-
-                </div>
-
-
-                {/* <div className="flex items-center justify-between"> */}
                 <input
+                    className='form-control mb-2'
+                    type="text"
+                    placeholder="uid_Firebase"
+                    id="uid_Firebase"
+                    name="uid_Firebase"
+                    value={uidFireBase || (mode === 'update' ? (userData.uid_Firebase || '') : uidFireBase)}
+                    onChange={handleChange}
+                    hidden
+                />
+
+                <label htmlFor="nombre"></label>
+                <input
+                    className='form-control mb-2'
+                    type="text"
+                    placeholder="Nombre"
+                    id="nombre"
+                    name="nombre"
+                    defaultValue={mode === 'update' ? (userData.nombre || '') : (data.nombre || '')}
+                    onChange={handleChange}
+                />
+
+                <label htmlFor="apellidos"></label>
+                <input
+                    className='form-control mb-2'
+                    type="text"
+                    placeholder="Apellidos"
+                    id="apellidos"
+                    name="apellidos"
+                    defaultValue={mode === 'update' ? (userData.apellidos || '') : (data.apellidos || '')}
+                    onChange={handleChange}
+                />
+
+                <label htmlFor="username"></label>
+                <input
+                    className='form-control mb-2'
+                    type="text"
+                    placeholder="Username"
+                    id="username"
+                    name="username"
+                    defaultValue={mode === 'update' ? (userData.username || '') : (data.username || '')}
+                    onChange={handleChange}
+                />
+
+                <input
+                    className='form-control mb-2 text-end'
+                    type="text"
+                    placeholder="Email"
+                    id="email"
+                    name="email"
+                    defaultValue={emailFireBase || ""}
+                    onChange={handleChange}
+                    disabled
+                />
+
+                <input
+                    type="text"
+                    placeholder="rol"
+                    id="rol"
+                    name="rol"
+                    defaultValue={rolFireBase || ""}
+                    onChange={handleChange}
+                    hidden
+                />
+
+
+                <label htmlFor="contacto"></label>
+                <input
+                    className='form-control mb-2'
+                    type="tel"
+                    placeholder="Contacto"
+                    id="contacto"
+                    name="contacto"
+                    defaultValue={mode === 'update' ? (userData.contacto || '') : (data.contacto || '')}
+                    onChange={handleChange}
+                />
+                <SelectProvincia  defaultValue={mode === 'update' ? (userData.provincia || '') : (data.provincia || '')} handleChange={handleChange} />
+
+                <label htmlFor="ciudad"></label>
+                <input
+                    className='form-control mb-2'
+                    type="text"
+                    placeholder="Ciudad"
+                    id="ciudad"
+                    name="ciudad"
+                    defaultValue={mode === 'update' ? (userData.ciudad || '') : (data.ciudad || '')}
+                    onChange={handleChange}
+                />
+
+                <input
+                    type="text"
+                    placeholder="Fecha"
+                    id="fecha"
+                    name="fecha"
+                    defaultValue={mode === 'update' ? (userData.fecha || '') : (data.fecha || '')}
+                    onChange={handleChange}
+                    hidden />
+
+                <input
+                    className='btn btn-success m-2'
                     type="submit"
                     value={mode === 'update' ? 'Actualizar' : 'Crear'}
-                // className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 />
-                {/* </div> */}
+                
 
 
             </form>
