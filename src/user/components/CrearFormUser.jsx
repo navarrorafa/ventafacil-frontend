@@ -13,11 +13,8 @@ export const CrearFormUser = ({ mode }) => {
 
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
-    const { userData} = useDatosUser()
-    
-  
-   
-    
+    const { userData} = useDatosUser(initialValues)
+    console.log(user)
     
     const { createUser, updateUser } = useUserManager();
     const initialValues = {
@@ -59,9 +56,9 @@ export const CrearFormUser = ({ mode }) => {
 
 
 
-            <h1 className="text-center text-light">Mi Perfil</h1>
+            <h1 className="text-center text-dark">Mi Perfil</h1>
 
-            <form className="form-control bg-transparent p-2" onSubmit={onSubmit}>
+            <form className="form-control bg-dark p-2" onSubmit={onSubmit}>
 
 
                 <input

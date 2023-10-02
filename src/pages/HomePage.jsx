@@ -21,6 +21,7 @@ export const HomePage = () => {
 const {data} = response ;
 console.log({data} )
   return (
+
     <><section>
       {data.map((item) => (
         <CardAnuncio
@@ -31,5 +32,6 @@ console.log({data} )
         <h1 className="text-center text-light">Home</h1>
         <Buscador route={"/galeria/"} />
       </></>
+
   )
 }

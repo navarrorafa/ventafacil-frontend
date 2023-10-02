@@ -3,16 +3,18 @@ import { useForm } from "../../hooks/useForm";
 import { dataFetch } from '../../helpers/dataFetch';
 import { UserProvider } from '../../context/UserProvider';
 import { UserContext } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 export const PublicarForm = ({ mode }) => {
   const { user } = useContext(UserContext)
   const { uidFireBase } = user
-
+const navigate = useNavigate()
   const url = "http://localhost:3000/api/v1/ventafacil/ads/anunciar"
   const { handleChange, handleFileChange, data, file } = useForm()
   const onSubmit = (ev) => {
     ev.preventDefault()
     const newAd = data
     createad(newAd)
+    navigate('/user/myhome')
   }
   const createad = async (newAd) => {
     const completeAd = {
@@ -25,9 +27,9 @@ export const PublicarForm = ({ mode }) => {
   }
   return (
     <>
-      <h1 className="text-center text-light">Publicar un Artículo</h1>
+      <h1 className="text-center text-dark">Publicar un Artículo</h1>
 
-      <form className="form-control bg-transparent" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
+      <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Producto} placeholder="Producto" name='producto' />
         <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
@@ -99,7 +101,7 @@ export const PublicarForm = ({ mode }) => {
         <label for="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
         <input type="checkbox" name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
         <input hidden type="text" name="nombreVendedor" />
-        <input className='btn btn-success m-2' type="submit" />
+        <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
       </form>
     </>
   );
