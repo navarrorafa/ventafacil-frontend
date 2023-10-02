@@ -52,8 +52,8 @@ console.log(user)
                                 <td className="py-2 px-4">{anuncio.id_comprador}</td>
                                 <td className="py-2 px-4">{anuncio.fecha_anuncio}</td>
                                 <td className="py-2 px-4">
-                                    <Link to={`/admin/anuncio/${anuncio.id_anuncio}`} className="text-blue-500 hover:underline">
-                                        Ver más
+                                    <Link to={`/user/editar/${anuncio.id_anuncio}`} className="text-blue-500 hover:underline">
+                                        Editar
                                     </Link>
                                 </td>
                             </tr>

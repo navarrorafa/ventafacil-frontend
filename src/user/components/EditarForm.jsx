@@ -105,9 +105,10 @@ export const EditarForm = () => {
           <option value="zaragoza">Zaragoza</option>
         </select>
         <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        <input type="text" name="producto_stripe" defaultValue={adData.producto_stripe} placeholder='Producto_Stripe' />
-        <input type="text" name="ID_vendedor" defaultValue={adData.id_vendedor} onChange={handleChange} />
-        <input hidden type="text" name="nombreVendedor" />
+        
+        <input  type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={adData.id_vendedor} />
+        
+        <input  type="text" hidden name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
 
         <input type="submit" />
       </form>

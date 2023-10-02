@@ -93,7 +93,8 @@ const {uidFireBase} = user
             <option value="zaragoza">Zaragoza</option>
           </select>
           <input type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-          <input  type="checkbox" required name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+         
+          <input  type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
           <input hidden type="text" name="nombreVendedor" />
           <input type="submit" />
         </form>
