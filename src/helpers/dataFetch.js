@@ -23,7 +23,7 @@ export const dataFetch = async (url, method, body = {}, file = false) => {
                     "Content-type": "application/json",
                 }
             }
-            console.log(newData)
+            // console.log(newData)
         }
 
         if (method == "DELETE") {
@@ -43,7 +43,7 @@ export const dataFetch = async (url, method, body = {}, file = false) => {
 
         const response = await fetch(url, options)
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         return data
     } catch (error) {
         console.log('FAILED while fetching', error)
