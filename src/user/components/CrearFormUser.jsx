@@ -9,19 +9,31 @@ import { SelectProvincia } from "../../components/SelectProvincia";
 
 
 export const CrearFormUser = ({ mode }) => {
-
-
     const { user } = useContext(UserContext);
-    const { userData } = useDatosUser()
-  
-    
-
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
-
-    const { createUser, updateUser } = useUserManager();
+    const { userData} = useDatosUser()
     
-    const { handleChange, data} = useForm()
+  
+   
+    
+    
+    const { createUser, updateUser } = useUserManager();
+    const initialValues = {
+        uid_Firebase: uidFireBase || (mode === 'update' ? userData.uid_Firebase : ''),
+        nombre: mode === 'update' ? userData.nombre : user.nombre || '',
+        apellidos: mode === 'update' ? userData.apellidos : user.apellidos || '',
+        username: mode === 'update' ? userData.username : user.username || '',
+        email: emailFireBase || '',
+        rol: rolFireBase || '',
+        contacto: mode === 'update' ? userData.contacto : user.contacto || '',
+        provincia: mode === 'update' ? userData.provincia : user.provincia || '',
+        ciudad: mode === 'update' ? userData.ciudad : user.ciudad || '',
+        fecha: mode === 'update' ? userData.fecha : user.fecha || ''
+    };
+    console.log(initialValues)
+    
+    const { handleChange, data} = useForm(initialValues)
 
     const onSubmit = async (ev) => {
         ev.preventDefault();
@@ -46,7 +58,7 @@ export const CrearFormUser = ({ mode }) => {
 
 
 
-            <pre>{JSON.stringify(data)}</pre>
+           
             <form onSubmit={onSubmit} className="bg-white p-6 rounded shadow-md">
                 <div className="mb-4">
 
@@ -91,8 +103,10 @@ export const CrearFormUser = ({ mode }) => {
                         defaultValue={mode === 'update' ? (userData.username || '') : (data.username || '')}
                         onChange={handleChange}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        disabled={mode === 'update'}
                     />
-
+                    
+                    <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
                     <input
                         type="text"
                         placeholder="Email"
@@ -101,6 +115,7 @@ export const CrearFormUser = ({ mode }) => {
                         defaultValue={emailFireBase || ""} 
                         onChange={handleChange}
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        disabled={mode === 'update'}
                     />
 
                     <input

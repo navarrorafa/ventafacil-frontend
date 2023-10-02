@@ -18,7 +18,9 @@ export const LogRegForm = () => {
         logReg(newData)
         logeando?
         navigate('/user') :
-        navigate('/user/register')
+        setTimeout(() => {
+            navigate('/register');
+        }, 1050); 
     }
 
     const logReg = async (newData) => {

@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 import CardAnuncioPage from '../pages/CardAnuncioPage';
 import { PintarUnaCategoria } from '../user/pages/PintarUnaCategoria';
+import { RegisterPage } from '../user/pages';
 
 
 export const AppRouter = () => {
@@ -22,9 +23,10 @@ export const AppRouter = () => {
          <Route path="producto/:id" element={<CardAnuncioPage />} />
          <Route path="/galeria/:id" element={<GalleryPage />} />
          <Route path="/producto/:id" element={<CardAnuncioPage />} />
-         <Route path="/categoria" element={<CategoriaPage />}>
+         <Route path="/categoria" element={<CategoriaPage />}/>
          
-         </Route>
+       
+         <Route path="/register" element={<RegisterPage />} />
          <Route path="anunciosporcat/:nombre" element={<PintarUnaCategoria />} />
          {
             rolFireBase === 'user' ? (

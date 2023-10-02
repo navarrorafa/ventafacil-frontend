@@ -39,6 +39,9 @@ export const TablaUser = () => {
                             <td className="py-2 px-4">{anuncio.email}</td>
                             <td className="py-2 px-4">{anuncio.fecha}</td>
                             <td className="py-2 px-4">
+                               
+
+                               
                                 <Link to={`/admin/user/${anuncio.uid_firebase}`} className="text-blue-500 hover:underline">
                                     Ver más
                                 </Link>

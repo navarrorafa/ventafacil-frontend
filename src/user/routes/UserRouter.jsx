@@ -7,7 +7,7 @@ export const UserRouter = () => {
 
     <>
       <Routes>
-        <Route path="register" element={<RegisterPage />} />
+     
         <Route path="articulos" element={<TodosAnunciosPage />} />
         <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
         <Route path="publicar" element={<PublicarAnuncioPage />} />
