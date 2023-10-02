@@ -18,7 +18,7 @@ console.log(ruta_foto)
       <article className="bg-dark text-light card mb-2">
         <div className="row">
           <div className="col-md-4">
-            <img className="card-img-top img-fluid mb-2" src={import.meta.env.VITE_APP_RUTA_GLOBAL+"/upload/"+ruta_foto} alt={producto} />
+            <img className="card-img-top img-fluid mb-2" src={"http://localhost:3000/api/v1//upload/"+ruta_foto} alt={producto} />
           </div>
           <div className="col-md-8">
             <div className="card-body">

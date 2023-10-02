@@ -13,7 +13,7 @@ export const CrearFormUser = ({ mode }) => {
 
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
-    const { userData} = useDatosUser(initialValue)
+    const { userData} = useDatosUser(initialValues)
     console.log(user)
     
     const { createUser, updateUser } = useUserManager();
@@ -31,7 +31,7 @@ export const CrearFormUser = ({ mode }) => {
     };
     console.log(initialValues)
     
-    const { handleChange, data} = useForm(initialValue)
+    const { handleChange, data} = useForm(initialValues)
 
 
     const onSubmit = async (ev) => {
