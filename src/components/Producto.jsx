@@ -36,24 +36,27 @@ export const Producto = ({
             <p>{categoria}</p>
             <p>{fecha_anuncio}</p>
             <p>{zona_geografica}</p>
-            {/* <img src={ruta_foto} alt="" /> */}
-            {/* <a href={enlace_pago}>COMPRAR</a> */}
+            <div>
+                <img src={ruta_foto} alt="" />
+            </div>
+            <a href={enlace_pago}></a>
+           
             
    
 
             <div>
              
                 {showEditButton && (
-                    <NavLink to="/editar">Editar</NavLink>  
+                    <Link to={`/user/editar/${id_anuncio}`}>Editar</Link>  
                 )}
 
                
                 {showBuyButton && (
-                    <Link to={{ pathname: "/comprar", state: { enlace_pago: true } }}>Comprar</Link>  
+                    <Link to={{  state: { enlace_pago: true } }}>Comprar</Link>  
                 )}
 
                 {showRegisterLink && (
-                    <Link to="/registro">Registro</Link> 
+                    <Link to="/auth/login">Registro</Link> 
                 )}
             </div>
         </>

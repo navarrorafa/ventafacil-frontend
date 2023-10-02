@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
 export const CardCategoria = ({nombre, descripcion}) => {
 
@@ -10,7 +10,7 @@ export const CardCategoria = ({nombre, descripcion}) => {
       <div>
         <div>
           
-         <Link to={`nombre de la ruta/${nombre}`}>{nombre}</Link>  
+         <Link to={`/anunciosporcat/${nombre}`}>{nombre}</Link>  
 
         </div>
       </div>
