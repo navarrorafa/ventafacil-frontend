@@ -12,8 +12,9 @@ export const UserRouter = () => {
         <Route path="misanuncios" element={<TodosMisAnunciosPage />} />
         <Route path="publicar" element={<PublicarAnuncioPage />} />
         <Route path="editar/:id" element={<EditarAnuncioPage />} />
+        <Route path="eliminar/:id" element={<EliminarAnuncioPage />} />
 
-        <Route path="eliminar/:id_anuncio" element={<EliminarAnuncioPage />} />
+        
         <Route path="myhome" element={<MiEspacioPage />}>
           <Route path="update/:id" element={<EditarPerfilPage />} />
 

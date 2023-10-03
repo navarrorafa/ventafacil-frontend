@@ -61,6 +61,10 @@ console.log(user)
                                     <Link className='btn btn-dark' to={`/user/editar/${anuncio.id_anuncio}`} >
                                         Editar
                                     </Link>
+                                
+                                    <Link className='btn btn-dark' to={`/user/eliminar/${anuncio.id_anuncio}`} >
+                                        Eliminar anuncio
+                                    </Link>
                                 </td>
                             </tr>
                         ))}
