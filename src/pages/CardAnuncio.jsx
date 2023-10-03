@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 
 
 export const CardAnuncio = ({ ruta_foto, categoria, producto, precio, id_anuncio }) => {
 
-console.log(ruta_foto)
-  const [hasError, setHasError] = useState(false);
 
-  const handleError = () => {
-    setHasError(true);
-  }
+  
 
 
   return (

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { dataFetch } from "../../helpers/dataFetch";
 
@@ -10,9 +10,9 @@ export const useDatosUser = () => {
     const { uidFireBase } = user;
     const url = `http://localhost:3000/api/v1/users/uid/${uidFireBase}`;
       
-    console.log(user)
-    console.log(url)
-  console.log(userData)
+
+ 
+
   
 
 
@@ -22,9 +22,10 @@ export const useDatosUser = () => {
              
             try {
          
-                const res = await dataFetch(url, 'GET');
+                const res = await dataFetch(url, 'POST');
              
                 const data = res  
+                console.log(data)
               
                 setUserData(data);
             } catch (error) {

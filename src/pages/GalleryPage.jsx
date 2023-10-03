@@ -1,9 +1,9 @@
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
+import { CardAnuncio } from "./CardAnuncio";
+import { Buscador } from "../components/Buscador";
+import { useResultado } from "../hooks/useResultado";
 
-import React, { useContext } from 'react';
-import { SearchContext } from '../context/SearchContext';
-import { useResultado } from '../hooks/useResultado';
-import { Buscador } from '../components/Buscador';
-import { CardAnuncio } from '../components/CardAnuncio.Jsx';
 
 
 

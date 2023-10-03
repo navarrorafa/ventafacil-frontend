@@ -1,8 +1,10 @@
 
 import { useParams,  } from 'react-router-dom';
 
-import { CardAnuncio } from '../../components/CardAnuncio.Jsx';
+import { CardAnuncio } from '../../pages/CardAnuncio.jsx';
 import { useFetch } from '../../hooks/useFetch';
+
+
 
 export const PintarUnaCategoria = () => {
     const { nombre } = useParams();
