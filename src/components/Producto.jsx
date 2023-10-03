@@ -33,15 +33,15 @@ export const Producto = ({
         <>
 
             <section className='bg-dark m-2'>
-                <h2 className='card-title text-dark text end'>{producto} - {precio}€</h2>
+                <h2 className='card-title text-light text end'>{producto} - {precio}€</h2>
 
                 <article>
                     <div>
                         <img src={ruta_foto} alt={producto} />
                     </div>
                     <div className="card-body m-2">
-                        <p className='card-subtitle m-2'>{zona_geografica} - {fecha_anuncio}</p>
-                        <p className='m-2'>{descripcion}</p>
+                        <p className='card-subtitle m-2 text-light'>{zona_geografica} - {fecha_anuncio}</p>
+                        <p className='m-2 text-light'>{descripcion}</p>
                     </div>
                     <a className='btn btn-primary m-2' href={enlace_pago}>Comprar</a>
                 </article>

@@ -13,8 +13,8 @@ export const CrearFormUser = ({ mode }) => {
 
     const { emailFireBase, uidFireBase, rolFireBase } = user;
 
-    const { userData} = useDatosUser(initialValue)
-    console.log(user)
+    const { userData} = useDatosUser()
+
     
     const { createUser, updateUser } = useUserManager();
     const initialValues = {
@@ -29,9 +29,9 @@ export const CrearFormUser = ({ mode }) => {
         ciudad: mode === 'update' ? userData.ciudad : user.ciudad || '',
         fecha: mode === 'update' ? userData.fecha : user.fecha || ''
     };
-    console.log(initialValues)
+
     
-    const { handleChange, data} = useForm(initialValue)
+    const { handleChange, data} = useForm(initialValues)
 
 
     const onSubmit = async (ev) => {
@@ -54,7 +54,8 @@ export const CrearFormUser = ({ mode }) => {
     return (
         <>
 
-
+              
+            <pre>{JSON.stringify(data)}</pre>
 
             <h1 className="text-center text-dark">Mi Perfil</h1>
 

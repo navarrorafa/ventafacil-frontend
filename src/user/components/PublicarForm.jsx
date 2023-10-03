@@ -7,14 +7,19 @@ import { useNavigate } from 'react-router-dom';
 export const PublicarForm = ({ mode }) => {
   const { user } = useContext(UserContext)
   const { uidFireBase } = user
-const navigate = useNavigate()
+  const initialValues = {
+    ID_vendedor: uidFireBase 
+  };
+
+  console.log(uidFireBase)
+  const navigate = useNavigate()
   const url = "http://localhost:3000/api/v1/ventafacil/ads/anunciar"
-  const { handleChange, handleFileChange, data, file } = useForm()
+  const { handleChange, handleFileChange, data, file } = useForm(initialValues)
   const onSubmit = (ev) => {
     ev.preventDefault()
     const newAd = data
     createad(newAd)
-    navigate('/user/myhome')
+    navigate('/user/misanuncios')
   }
   const createad = async (newAd) => {
     const completeAd = {
@@ -27,6 +32,7 @@ const navigate = useNavigate()
   }
   return (
     <>
+    
       <h1 className="text-center text-dark">Publicar un Artículo</h1>
 
       <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
@@ -97,11 +103,10 @@ const navigate = useNavigate()
           <option value="zamora">Zamora</option>
           <option value="zaragoza">Zaragoza</option>
         </select>
-        <input className='text-start text-light bg-dark form-control mb-2' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        <label className='text-light' htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
-        <input className='m-1' type="checkbox" name="id_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
+        <input type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
         <input hidden type="text" name="nombre_vendedor" />
-        <input className='btn btn-primary m-2' type="submit" value='Publicar anuncio'/>
+        <input className='btn btn-success m-2' type="submit" value='Publicar anuncio' />
       </form>
     </>
   );
