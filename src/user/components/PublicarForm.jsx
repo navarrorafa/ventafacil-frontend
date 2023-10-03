@@ -7,14 +7,17 @@ import { useNavigate } from 'react-router-dom';
 export const PublicarForm = ({ mode }) => {
   const { user } = useContext(UserContext)
   const { uidFireBase } = user
-const navigate = useNavigate()
+  const initialValues = {
+    uid_Firebase: uidFireBase 
+  };
+  const navigate = useNavigate()
   const url = "http://localhost:3000/api/v1/ventafacil/ads/anunciar"
-  const { handleChange, handleFileChange, data, file } = useForm()
+  const { handleChange, handleFileChange, data, file } = useForm(initialValues)
   const onSubmit = (ev) => {
     ev.preventDefault()
     const newAd = data
     createad(newAd)
-    navigate('/user/myhome')
+    navigate('/user/misanuncios')
   }
   const createad = async (newAd) => {
     const completeAd = {
@@ -99,9 +102,9 @@ const navigate = useNavigate()
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
         <label htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
-        <input type="checkbox" name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input type="text" name="ID_vendedor" onChange={handleChange} value={user.uidFireBase} />
         <input hidden type="text" name="nombre_vendedor" />
-        <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
+        <input className='btn btn-success m-2' type="submit" value='Publicar anuncio' />
       </form>
     </>
   );

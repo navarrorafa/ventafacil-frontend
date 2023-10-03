@@ -17,6 +17,7 @@ export const EditarForm = () => {
     ev.preventDefault()
     const newAd = data
     updateAd(newAd)
+    navigate('/user/misanuncios')
 
   }
 

@@ -3,12 +3,15 @@ import { dataFetch } from '../../helpers/dataFetch';
 import { useForm } from "../../hooks/useForm";
 import { useDatosAds } from '../hooks/useDatosAds';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const BorrarForm = () => {
-  const { adData } = useDatosAds()
+  const {id} = useParams()
+
+  const { adData } = useDatosAds(id)
   const navigate = useNavigate()
   console.log(adData)
-  const url = "http://localhost:3000/api/v1/ventafacil/ads/eliminar/36"
+  const url = `http://localhost:3000/api/v1/ventafacil/ads/eliminar/${id}`
   const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
 
   const onSubmit = (ev) => {
@@ -16,7 +19,7 @@ export const BorrarForm = () => {
     ev.preventDefault()
     const newAd = data
     updateAd(newAd)
-    navigate('/user/myhome')
+    navigate('/user/misanuncios')
   }
 
   const updateAd = async () => {

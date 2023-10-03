@@ -4,6 +4,10 @@ export const EliminarAnuncioPage = () => {
 
     
   return (
+    <div>
     <BorrarForm/>
+    <Outlet />
+    </div>
+    
   )
 }
