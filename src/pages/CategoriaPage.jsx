@@ -14,7 +14,7 @@ export const CategoriaPage =  () => {
 
 
   if (!response.ok || !response.data) {
-    return <div>Error or Loading...</div>;
+    return <p className='alert alert-primary text-center'>Cargando...</p>;
 }
 
 const {data} = response ;
