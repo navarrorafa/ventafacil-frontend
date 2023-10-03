@@ -4,17 +4,17 @@ import { useDatosUser } from "../hooks/useDatosUser";
 import { useUserManager } from "../hooks/useUserManager";
 import { useForm } from "../../hooks/useForm";
 import { SelectProvincia } from "../../components/SelectProvincia";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 
 export const CrearFormUser = ({ mode }) => {
     const { user } = useContext(UserContext);
-
     const { emailFireBase, uidFireBase, rolFireBase } = user;
-
     const { userData} = useDatosUser()
-
+    const navigate = useNavigate()
     
     const { createUser, updateUser } = useUserManager();
     const initialValues = {
@@ -29,7 +29,7 @@ export const CrearFormUser = ({ mode }) => {
         ciudad: mode === 'update' ? userData.ciudad : user.ciudad || '',
         fecha: mode === 'update' ? userData.fecha : user.fecha || ''
     };
-
+   
     
     const { handleChange, data} = useForm(initialValues)
 
@@ -44,19 +44,20 @@ export const CrearFormUser = ({ mode }) => {
 
         if (mode === 'update') {
             await updateUser(newUser, url);
+            navigate('/')
         } else {
             await createUser(newUser, url);
+            navigate('/')
         }
     };
-
+  
 
 
     return (
         <>
 
-              
-            <pre>{JSON.stringify(data)}</pre>
-
+<pre>{JSON.stringify(data)}</pre>
+           
             <h1 className="text-center text-dark">Mi Perfil</h1>
 
             <form className="form-control bg-dark p-2" onSubmit={onSubmit}>

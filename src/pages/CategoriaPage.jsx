@@ -24,14 +24,16 @@ console.log({data} )
   return (
     <>
 
-      <section  className='d-flex justify-content-between align-items-end'>
-        {
-          data.map((item) => (
-            <CardCategoria
-              key={item.id_categoria}
-              {...item}
-            />
-          ))
+      <section  className=''>
+      {
+          <div className="row">
+            {data.map((item) => (
+              <div className="col-sm-6 col-md-4 mb-3 col-lg-3" key={item.id_categoria}>
+                <CardCategoria {...item} />
+              </div>
+            ))}
+          </div>
+        
         }
       </section>
     </>

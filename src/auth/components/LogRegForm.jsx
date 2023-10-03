@@ -21,12 +21,12 @@ export const LogRegForm = () => {
             rolFireBase ?
                 navigate(`/${rolFireBase}`) :
                 navigate('/auth/login')
-        ) : (rolFireBase ?
+        ) : 
             setTimeout(() => {
                 navigate('/register');
             }, 1500)
-            :
-            navigate('/auth/login'));
+            // :
+            // navigate('/auth/login'));
     }
 
     const logReg = async (newData) => {
