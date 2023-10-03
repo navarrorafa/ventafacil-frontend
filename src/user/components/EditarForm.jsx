@@ -8,16 +8,17 @@ import { useNavigate } from 'react-router-dom';
 export const EditarForm = () => {
   const { id } = useParams()
   const { adData } = useDatosAds(id)
-
+  const navigate = useNavigate()
   
   const initialValues = {
-    producto: adData.producto
+    ID_vendedor:adData.id_vendedor,
+    producto_stripe:adData.producto_stripe
   };
-  console.log(initialValues.producto)
-  const url = `http://localhost:3000/api/v1/ventafacil/ads/actualizar/${id}`
+  console.log(initialValues)
+  
   const { handleChange, handleFileChange, data, file } = useForm(initialValues)
 
-
+  const url = `http://localhost:3000/api/v1/ventafacil/ads/actualizar/${id}`
 
 
   const onSubmit = (ev) => {
@@ -25,6 +26,7 @@ export const EditarForm = () => {
     ev.preventDefault()
     const newAd = data
     updateAd(newAd)
+    navigate('/user/misanuncios')
 
 
   }
@@ -119,9 +121,9 @@ export const EditarForm = () => {
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
 
-        <input type="text" name="ID_vendedor" onChange={handleChange} defaultValue={adData.id_vendedor} />
+        <input type="text" name="ID_vendedor" onChange={handleChange} value={adData.id_vendedor} />
 
-        <input type="text" name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
+        <input type="text" name="producto_stripe" onChange={handleChange} value={adData.producto_stripe} />
 
         <input className='btn btn-success m-2' type="submit" value='Editar' />
       </form>

@@ -32,7 +32,7 @@ export const PublicarForm = ({ mode }) => {
   }
   return (
     <>
-    <pre>{JSON.stringify(data)}</pre>
+    
       <h1 className="text-center text-dark">Publicar un Artículo</h1>
 
       <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
@@ -104,7 +104,7 @@ export const PublicarForm = ({ mode }) => {
           <option value="zaragoza">Zaragoza</option>
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        <input type="text"  name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
         <input hidden type="text" name="nombre_vendedor" />
         <input className='btn btn-success m-2' type="submit" value='Publicar anuncio' />
       </form>
