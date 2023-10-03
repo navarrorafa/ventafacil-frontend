@@ -31,14 +31,14 @@ const TablaAnuncios = () => {
         <h1 className='text-center text-dark'>Anuncios</h1>
             
         <table className="table table-dark table-hover">
-                    <thead className="bg-gray text-white">
+                    <thead>
                         <tr>
-                            <th className='col'>ID Anuncio</th>
-                            <th className='col'>Producto</th>
-                            <th className='col'>ID Vendedor</th>
-                            <th className='col'>ID Comprador</th>
-                            <th className='col'>Fecha Anuncio</th>
-                            <th className='col'>Acción</th>
+                            <th className='col text-primary'>ID Anuncio</th>
+                            <th className='col text-primary'>Producto</th>
+                            <th className='col text-primary'>ID Vendedor</th>
+                            <th className='col text-primary'>ID Comprador</th>
+                            <th className='col text-primary'>Fecha Anuncio</th>
+                            <th className='col text-primary'>Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +50,7 @@ const TablaAnuncios = () => {
                                 <td >{anuncio.id_comprador}</td>
                                 <td >{anuncio.fecha_anuncio}</td>
                                 <td >
-                                    <Link className='btn btn-dark' to={`/admin/anuncio/${anuncio.id_anuncio}`} >
+                                    <Link className='btn btn-dark text-primary border-primary' to={`/admin/anuncio/${anuncio.id_anuncio}`} >
                                         Ver más
                                     </Link>
                                 </td>

@@ -10,16 +10,16 @@ export const HomePage = () => {
 
   const url = "http://localhost:3000/api/v1/ventafacil/ads";
   const method = 'GET';
-  const response =  useFetch(url, method);
+  const response = useFetch(url, method);
 
 
 
   if (!response.ok || !response.data) {
     return <div>Error or Loading...</div>;
-}
+  }
 
-const {data} = response ;
-// console.log({data} 
+  const { data } = response;
+  // // console.log({data} 
   return (
 
     <><section>

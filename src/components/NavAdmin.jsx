@@ -7,14 +7,14 @@ export const NavAdmin = () => {
     <li className='nav-item'>
         <NavLink
             to="/admin/anuncios"
-            className={({ isActive }) => `nav-link text-light ${isActive ? 'active' : ''}`}>
+            className={({ isActive }) => `nav-link ${isActive ? 'text-primary' : 'text-light'}`}>
             Anuncios
         </NavLink>
     </li>
     <li className='nav-item'>
         <NavLink
             to="/admin/user"
-            className={({ isActive }) => `nav-link text-light ${isActive ? 'active' : ''}`}>
+            className={({ isActive }) => `nav-link ${isActive ? 'text-primary' : 'text-light'}`}>
             Usuarios
         </NavLink>
     </li>

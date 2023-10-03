@@ -18,7 +18,7 @@ export const CardAnuncio = ({ ruta_foto, categoria, producto, precio, id_anuncio
             <div className="card-body">
               <h2 className="card-title text-light">{producto} - {precio}€</h2>
               <p className="card-subtitle">{categoria}</p>
-              <Link className='btn btn-success' to={`/producto/${id_anuncio}`}>Detalles</Link>
+              <Link className='btn btn-primary' to={`/producto/${id_anuncio}`}>Detalles</Link>
             </div>
           </div>
         </div>

@@ -43,7 +43,7 @@ export const Producto = ({
                         <p className='card-subtitle m-2 text-light'>{zona_geografica} - {fecha_anuncio}</p>
                         <p className='m-2 text-light'>{descripcion}</p>
                     </div>
-                    <a className='btn btn-success m-2' href={enlace_pago}>Comprar</a>
+                    <a className='btn btn-primary m-2' href={enlace_pago}>Comprar</a>
                 </article>
                 <BackButton />
             </section>
@@ -55,7 +55,7 @@ export const Producto = ({
 
 
                 {showBuyButton && (
-                    <Link className='btn btn-success m-2'to={{ state: { enlace_pago: true } }}>Comprar</Link>
+                    <Link className='btn btn-primary m-2'to={{ state: { enlace_pago: true } }}>Comprar</Link>
                 )}
 
                 {showRegisterLink && (

@@ -8,7 +8,8 @@ export const LogRegForm = () => {
     const [logeando, setLogeando] = useState(false)
     const { data, handleChange } = useForm('')
     const [envio, setEnvio] = useState([])
-    const { updateUser } = useContext(UserContext)
+    const { updateUser, user } = useContext(UserContext)
+    const { rolFireBase } = user
     const navigate = useNavigate()
 
     const onSubmit = (ev) => {
@@ -16,11 +17,15 @@ export const LogRegForm = () => {
         const newData = data
 
         logReg(newData)
-        logeando?
-        navigate('/user') :
-        setTimeout(() => {
-            navigate('/register');
-        }, 1050); 
+        logeando ? (
+            rolFireBase ?
+                navigate(`/${rolFireBase}`) :
+                navigate('/auth/login')
+        ) : (rolFireBase ?
+    
+                navigate('/user/register')
+             :
+            navigate('/auth/login'));
     }
 
     const logReg = async (newData) => {
@@ -40,10 +45,10 @@ export const LogRegForm = () => {
             <button className='btn btn-dark m-3' onClick={() => setLogeando(!logeando)}>
                 {logeando ? 'Crear nueva cuenta' : 'Acceder con mi cuenta'}
             </button>
-            <form className="form-control d-flex bg-dark" onSubmit={onSubmit} method='POST'>
+            <form className="form-control bg-dark" onSubmit={onSubmit} method='POST'>
                 <label htmlFor="email"></label>
                 <input
-                className='form-control'
+                    className='form-control'
                     type="email"
                     id="email"
                     name="email"
@@ -54,7 +59,7 @@ export const LogRegForm = () => {
                 />
                 <label htmlFor="password"></label>
                 <input
-                className='form-control text-end'
+                    className='form-control'
                     type="password"
                     id="password"
                     name="password"
@@ -62,9 +67,9 @@ export const LogRegForm = () => {
                     value={data.password}
                     onChange={handleChange}
                 />
-                <input className='text-end btn btn-success m-2' type="submit" value={logeando ? 'Inicia sesión' : 'Regístrate'} />
+                <input className='text-end btn btn-primary m-2' type="submit" value={logeando ? 'Inicia sesión' : 'Regístrate'} />
 
-                {logeando && <Link className='text-danger' to='/auth/recover' >Olvidé la contraseña</Link>}
+                {logeando && <Link className='text-danger' to='/auth/recover' >Olvidé la contraseña?</Link>}
             </form>
         </div>
     )

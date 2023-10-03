@@ -6,14 +6,14 @@ export const NavGuest = () => {
     
 
 
-      <li>
+      <li><strong>
         <NavLink 
           to="/auth/login" 
-          className={({ isActive }) => `nav-link text-success ${isActive ? 'active' : ''}`}
+          className='nav-link text-primary'
         >
-          Login & Register
+          Register & Login
         </NavLink>
-      </li>
+      </strong></li>
     </>
   )
 }

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { BottonLogout, NavAdmin, NavGuest, NavUser, } from "./index"
 import { NavLink } from 'react-router-dom'
 import { UserContext } from "../context/UserContext";
+import Logo from "../assets/vf_logo_3.png"
 
 export const TypeNav = () => {
 
@@ -10,15 +11,16 @@ export const TypeNav = () => {
 
   return (
     <>
-      <p className="text-success h1"><strong>v€ntaFácilApp</strong></p>
-      <nav className='navbar navbar-expand-sm navbar-light bg-dark'>
-        <div className="container d-flex ">
+
+      <div className="d-flex justify-content-between align-items-end">
+        <nav className='navbar navbar-expand-sm navbar-light m-2'>
+          
             <ul className='navbar-nav mb-2'>
 
               <li className='nav-item'>
                 <NavLink
                   to='/'
-                  className={({ isActive }) => `nav-link text-light  ${isActive ? 'active' : ''}`}>
+                  className={({ isActive }) => `nav-link ${isActive ? 'text-primary' : 'text-light'}`}>
                   Home
                 </NavLink>
               </li>
@@ -26,7 +28,7 @@ export const TypeNav = () => {
               <li className='nav-item'>
                 <NavLink
                   to='/categoria'
-                  className={({ isActive }) => `nav-link text-light ${isActive ? 'active' : ''}`}>
+                  className={({ isActive }) => `nav-link ${isActive ? 'text-primary' : 'text-light'}`}>
                   Categoria
                 </NavLink>
               </li>
@@ -34,12 +36,10 @@ export const TypeNav = () => {
                 rolFireBase === 'user' ? (
                   <>
                     <NavUser />
-                    <BottonLogout />
                   </>
                 ) : rolFireBase === 'admin' ? (
                   <>
                     <NavAdmin />
-                    <BottonLogout />
                   </>
                 ) : (
                   <>
@@ -48,8 +48,16 @@ export const TypeNav = () => {
                 )
               }
             </ul>
+          
+        </nav>
+
+        <div className="d-flex justify-content-between align-items-end">{
+          rolFireBase &&
+          <div className="">
+            <BottonLogout />
           </div>
-      </nav>
+        }<img src={Logo} alt="logoVentaFacil" /></div>
+      </div>
     </>
 
 

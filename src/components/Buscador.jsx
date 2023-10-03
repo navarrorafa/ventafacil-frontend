@@ -25,7 +25,7 @@ export const Buscador = ({ route }) => {
         value={tempSearch}
         onChange={(e) => setTempSearch(e.target.value)}
       />
-      <button className='text-end btn btn-success m-2' type="submit">Buscar</button>
+      <button className='text-end btn btn-primary m-2' type="submit">Buscar</button>
     </form>
   );
 };

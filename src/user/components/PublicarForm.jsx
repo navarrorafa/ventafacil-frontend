@@ -37,7 +37,7 @@ export const PublicarForm = ({ mode }) => {
 
       <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Producto} placeholder="Producto" name='producto' />
-        <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
+        <textarea className='form-control mb-2' placeholder='Describe aquí tu artículo lo más fielmente posible..' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
         <select className='form-control mb-2' name='categoria' value={data.Categoria} onChange={handleChange} >
           <option defaultValue='' selected disabled>Elige una categoría</option>

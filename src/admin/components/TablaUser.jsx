@@ -24,11 +24,11 @@ export const TablaUser = () => {
                 <table className="table table-dark table-hover">
                     <thead className="bg-gray text-white">
                         <tr>
-                            <th className="col">uid</th>
-                            <th className="col">Nome de Usuário</th>
-                            <th className="col">Email</th>
-                            <th className="col">Data de Criação</th>
-                            <th className="col">Ação</th>
+                            <th className="col text-primary">uid</th>
+                            <th className="col text-primary">Nombre de Usuario</th>
+                            <th className="col text-primary">Email</th>
+                            <th className="col text-primary">Fecha de Creación</th>
+                            <th className="col text-primary">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +42,7 @@ export const TablaUser = () => {
 
 
 
-                                    <Link clasname='btn btn-dark' to={`/admin/user/${anuncio.uid_firebase}`} >
+                                    <Link clasname='btn btn-dark text-primary border-primary' to={`/admin/user/${anuncio.uid_firebase}`} >
                                         Ver más
                                     </Link>
                                 </td>
