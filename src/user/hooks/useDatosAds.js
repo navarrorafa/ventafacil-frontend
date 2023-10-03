@@ -9,7 +9,7 @@ export const useDatosAds = (id) => {
   
 
     const url = `http://localhost:3000/api/v1/ventafacil/ads/anuncio/${id}`;
-    console.log("estou no hook" , id, url)
+    console.log( id, url)
 
     const fetchData = async () => {
      

@@ -1,23 +1,31 @@
-import React from 'react'
+
 import { dataFetch } from '../../helpers/dataFetch';
 import { useForm } from "../../hooks/useForm";
 import { useDatosAds } from '../hooks/useDatosAds';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const EditarForm = () => {
-  const {id} = useParams()
-
+  const { id } = useParams()
   const { adData } = useDatosAds(id)
 
+  
+  const initialValues = {
+    producto: adData.producto
+  };
+  console.log(initialValues.producto)
   const url = `http://localhost:3000/api/v1/ventafacil/ads/actualizar/${id}`
-  const { handleChange, handleSubmit, handleFileChange, data, submited, file } = useForm()
+  const { handleChange, handleFileChange, data, file } = useForm(initialValues)
+
+
+
 
   const onSubmit = (ev) => {
 
     ev.preventDefault()
     const newAd = data
     updateAd(newAd)
-    navigate('/user/misanuncios')
+
 
   }
 
@@ -35,16 +43,18 @@ export const EditarForm = () => {
 
 
   return (
-    <>
-<h1 className="text-center text-dark">Editar mi Anuncio</h1>
 
-    
+    <>
+      <pre>{JSON.stringify(data)}</pre>
+      <h1 className="text-center text-dark">Editar mi Anuncio</h1>
+
+
       <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="PUT">
-        <input className='form-control mb-2' type="text" onChange={handleChange} defaultValue={adData.producto} placeholder="Producto" name='producto' />
+        <input className='form-control mb-2' type="text" onChange={handleChange} placeholder="Producto" name='producto' defaultValue={adData.producto} />
         <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} defaultValue={adData.descripcion} id="descripcion" cols="20" rows="10"></textarea>
         <input className='form-control mb-2' type="text" onChange={handleChange} defaultValue={adData.precio} placeholder="Precio" name='precio' />
         <select className='form-control mb-2' name='categoria' defaultValue={adData.categoria} onChange={handleChange} >
-        <option value="" disabled>Elige una categoría</option>
+          <option value="" disabled>Elige una categoría</option>
           <option value="electronica">electronica</option>
           <option value=" ropaAccesorios">Ropa y accesorios</option>
           <option value=" hogarJardin"> Hoga y jardín</option>
@@ -55,7 +65,7 @@ export const EditarForm = () => {
           <option value=" librosMusica"> Libros y música</option>
         </select>
         <select className='form-control mb-2' name="zona_geografica" defaultValue={adData.zona_geografica} onChange={handleChange}>
-        <option value="" disabled>Elige una provincia</option>
+          <option value="" disabled>Elige una provincia</option>
           <option value="alava">Alava</option>
           <option value="albacete">Albacete</option>
           <option value="alicante">Alicante</option>
@@ -108,10 +118,10 @@ export const EditarForm = () => {
           <option value="zaragoza">Zaragoza</option>
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        
-        <input  type="text" hidden name="ID_vendedor" onChange={handleChange} defaultValue={adData.id_vendedor} />
-        
-        <input  type="text" hidden name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
+
+        <input type="text" name="ID_vendedor" onChange={handleChange} defaultValue={adData.id_vendedor} />
+
+        <input type="text" name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
 
         <input className='btn btn-success m-2' type="submit" value='Editar' />
       </form>

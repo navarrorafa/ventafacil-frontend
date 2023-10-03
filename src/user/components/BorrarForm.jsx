@@ -21,6 +21,11 @@ export const BorrarForm = () => {
     updateAd(newAd)
     navigate('/user/misanuncios')
   }
+  const onSubmit2 = (ev) => {
+
+    ev.preventDefault()
+    navigate('/user/misanuncios')
+  }
 
   const updateAd = async () => {
 
@@ -39,8 +44,16 @@ export const BorrarForm = () => {
 
 
         <input className='btn btn-danger m-2' type="submit" value={"ELIMINAR ANUNCIO"} />
-        <button className='btn btn-dark m-2'>NO, VOLVER ATRÁS</button>
+        
       </form>
+      
+      <form className="form-control bg-dark p-2" encType='multipart/form-data' onSubmit={onSubmit2} method="DELETE">
+
+
+      <input className='btn btn-danger m-2' type="submit" value={"NO, VOLVER ATRÁS"} />
+        
+      </form>
+      
     </>
   );
 }

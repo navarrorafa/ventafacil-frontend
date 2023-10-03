@@ -13,6 +13,7 @@ export const NavUser = () => {
                 </li>
                 <li>
                     <NavLink
+                    
                         to="/user/misanuncios"
                         className={({ isActive }) => `nav-link text-light ${isActive ? 'active' : ''}`}>
                         Mis anuncios
