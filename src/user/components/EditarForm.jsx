@@ -112,7 +112,7 @@ export const EditarForm = () => {
         
         <input  type="text" hidden name="producto_stripe" onChange={handleChange} defaultValue={adData.producto_stripe} />
 
-        <input className='btn btn-success m-2' type="submit" value='Editar' />
+        <input className='btn btn-primary m-2' type="submit" value='Editar' />
       </form>
     </>
   );

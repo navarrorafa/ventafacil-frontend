@@ -160,7 +160,7 @@ export const CrearFormUser = ({ mode }) => {
                     hidden />
 
                 <input
-                    className='btn btn-success m-2'
+                    className='btn btn-primary m-2'
                     type="submit"
                     value={mode === 'update' ? 'Actualizar' : 'Crear'}
                 />

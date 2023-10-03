@@ -20,7 +20,7 @@ export const HomePage = () => {
 
 // const {data} = response ;
 // // console.log({data} 
-//   return (
+  // return (
 
 //     <><section>
 //       {data.map((item) => (
@@ -33,5 +33,5 @@ export const HomePage = () => {
 //         <Buscador route={"/galeria/"} />
 //       </></>
 
-  )
+  // )
 }

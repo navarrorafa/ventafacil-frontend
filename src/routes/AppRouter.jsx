@@ -29,13 +29,18 @@ export const AppRouter = () => {
          <Route path="/register" element={<RegisterPage />} />
          <Route path="anunciosporcat/:nombre" element={<PintarUnaCategoria />} />
          {
-            rolFireBase === 'user' ? (
+            rolFireBase === 'user' ? 
+            (
                <Route path="/user/*" element={<UserRouter />} />
-            ) : rolFireBase === 'admin' ? (
+            ) 
+            : (rolFireBase === 'admin' ? 
+            (
                <Route path="/admin/*" element={<AdminRouter />} />
-            ) : (
-               <Route path="/auth/*" element={<AuthRouter />} />
-            )
+            ) 
+            : 
+            (
+               <Route path="/auth/*" element={<AuthRouter />} />))
+            
          }
 
          <Route path='/*' element={<Navigate to='/' />} />

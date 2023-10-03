@@ -24,7 +24,7 @@ console.log({data} )
   return (
     <>
 
-      <section>
+      <section  className='d-flex justify-content-between align-items-end'>
         {
           data.map((item) => (
             <CardCategoria

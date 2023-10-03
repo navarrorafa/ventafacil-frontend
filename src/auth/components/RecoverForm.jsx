@@ -24,7 +24,7 @@ export const RecoverForm = () => {
 
     return (
         <div>
-            <h1 className="text-center text-light">Recuperacion de contraseña</h1>
+            <h1 className="text-center text-dark">Recuperacion de contraseña</h1>
             <form className="form-control d-flex bg-dark" onSubmit={onSubmit} method='POST'>
 
                 <label htmlFor="email"></label>
@@ -38,7 +38,7 @@ export const RecoverForm = () => {
                     onChange={handleChange}
                 />
 
-                <input className='text-end btn btn-success m-2' type="submit" value='Recuperar contraseña' />
+                <input className='text-end btn btn-primary m-2' type="submit" value='Recuperar contraseña' />
             </form>
         </div>
     );

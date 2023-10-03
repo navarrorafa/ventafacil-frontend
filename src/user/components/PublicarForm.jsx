@@ -31,7 +31,7 @@ const navigate = useNavigate()
 
       <form className="form-control bg-dark" encType='multipart/form-data' onSubmit={onSubmit} method="POST">
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Producto} placeholder="Producto" name='producto' />
-        <textarea className='form-control mb-2' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
+        <textarea className='form-control mb-2' placeholder='Describe aquí tu artículo lo más fielmente posible..' name="descripcion" onChange={handleChange} value={data.Descripcion} id="descripcion" cols="30" rows="10"></textarea>
         <input className='form-control mb-2' type="text" onChange={handleChange} value={data.Precio} placeholder="Precio" name='precio' />
         <select className='form-control mb-2' name='categoria' value={data.Categoria} onChange={handleChange} >
           <option defaultValue='' selected disabled>Elige una categoría</option>
@@ -97,11 +97,11 @@ const navigate = useNavigate()
           <option value="zamora">Zamora</option>
           <option value="zaragoza">Zaragoza</option>
         </select>
-        <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
-        <label htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
-        <input type="checkbox" name="id_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input className='text-start text-light bg-dark form-control mb-2' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
+        <label className='text-light' htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
+        <input className='m-1' type="checkbox" name="id_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
         <input hidden type="text" name="nombre_vendedor" />
-        <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
+        <input className='btn btn-primary m-2' type="submit" value='Publicar anuncio'/>
       </form>
     </>
   );
