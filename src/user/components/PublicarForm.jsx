@@ -99,7 +99,7 @@ const navigate = useNavigate()
         </select>
         <input className='text-start text-light bg-dark' type='file' placeholder="Fotografía" name='imagen_anuncio' onChange={handleFileChange} />
         <label htmlFor="ID_vendedor">Al marcar la casilla aceptas nuestros términos y condiciones</label>
-        <input type="checkbox" name="id_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
+        <input type="checkbox" name="ID_vendedor" onChange={handleChange} defaultValue={uidFireBase} />
         <input hidden type="text" name="nombre_vendedor" />
         <input className='btn btn-success m-2' type="submit" value='Publicar anuncio'/>
       </form>
